@@ -1,11 +1,10 @@
-import { Box, Heading, Image as ChakraImage } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
+import MainVisual from '../components/MainVisual'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    // <div className={styles.container}>
     <div>
       <Head>
         <title>Create Next App</title>
@@ -13,7 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <MainVisual />
+
       <main className={styles.main}>
+        <div className={styles.container}>中身？</div>
       </main>
 
       <footer className={styles.footer}>
