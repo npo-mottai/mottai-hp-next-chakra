@@ -1,4 +1,4 @@
-import { Box, Button, Center, Heading, Text, Image } from '@chakra-ui/react'
+import { Box, Heading, Text, Image } from '@chakra-ui/react'
 
 export default function Activities() {
   const activities = []
