@@ -8,13 +8,11 @@ type PublicationItem = {
 export default function PublicationGridItem(publicationItem: PublicationItem) {
   return (
     <GridItem>
-      <Box>
+      <Box width="full">
         <Heading as="h3" mb="3" fontSize="md" fontWeight="normal" noOfLines={1}>
           {publicationItem.title}
         </Heading>
         <Image
-          htmlWidth="320px"
-          htmlHeight="240px"
           objectFit="cover"
           rounded="lg"
           src={publicationItem.imageUrl}
