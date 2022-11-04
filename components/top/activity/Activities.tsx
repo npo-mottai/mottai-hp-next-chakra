@@ -4,7 +4,7 @@ export default function Activities() {
   const activities = []
   for (const activityItem of activityItems) {
     activities.push(
-      <Box display={{ md: 'flex' }} mb={[4, 4, 8]}>
+      <Box display={{ md: 'flex' }} mb={[4, 4, 8]} key={activityItem.title}>
         <Image
           htmlWidth="320px"
           htmlHeight="240px"

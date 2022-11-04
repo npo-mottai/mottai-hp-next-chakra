@@ -4,9 +4,9 @@ type Props = {
   text: string
 }
 
-export default function MottaiButton(props: Props) {
+export default function SecondaryButton(props: Props) {
   return (
-    <Button colorScheme="orange" variant="outline">
+    <Button colorScheme="gray" variant="outline">
       {props.text}
     </Button>
   )

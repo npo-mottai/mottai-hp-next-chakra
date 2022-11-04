@@ -1,5 +1,5 @@
 import { Box, Button, Center, Heading, Text, Image } from '@chakra-ui/react'
-import MottaiButton from '../../MottaiButton'
+import PrimaryButton from '../../buttons/PrimaryButton'
 import Activities from './Activities'
 
 export default function ActivitySection() {
@@ -9,7 +9,7 @@ export default function ActivitySection() {
       <Text pb={4}>MOTTAI では、次のような活動に取り組んでいます。</Text>
       <Activities />
       <Center>
-        <MottaiButton text="Mottai の活動の詳細" />
+        <PrimaryButton text="MOTTAI の活動をもっと見る" />
       </Center>
     </Box>
   )

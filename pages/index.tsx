@@ -3,8 +3,8 @@ import styles from '../styles/Home.module.css'
 import MainVisual from '../components/MainVisual'
 import Mottai from '../components/top/Mottai'
 import ActivitySection from '../components/top/activity/ActivitySection'
-import Publication from '../components/top/Publication'
-import News from '../components/top/News'
+import Publication from '../components/top/publication/PublicationSection'
+import NewsSection from '../components/top/news/NewsSection'
 import Support from '../components/top/Support'
 import Contact from '../components/top/Contact'
 import { Box } from '@chakra-ui/react'
@@ -23,7 +23,7 @@ export default function Home() {
           <Mottai />
           <ActivitySection />
           <Publication />
-          <News />
+          <NewsSection />
           <Support />
           <Contact />
         </main>

@@ -1,5 +1,5 @@
 import { Box, Button, Center, Heading, Text } from '@chakra-ui/react'
-import MottaiButton from '../MottaiButton'
+import PrimaryButton from '../buttons/PrimaryButton'
 
 export default function Mottai() {
   return (
@@ -12,7 +12,7 @@ export default function Mottai() {
         一方で東京一極集中が進み、農家や漁師や猟師の知り合いがいる都市部の人がどんどんいなくなっています。このような状況の中で、一次体験を増やし、関係人口を増やし、食について考える機会を増やすため、2020年にNPO法人MOTTAIが創設されました。
       </Text>
       <Center>
-        <MottaiButton text="NPO法人 MOTTAI の詳細" />
+        <PrimaryButton text="NPO法人 MOTTAI の詳細" />
       </Center>
     </Box>
   )
