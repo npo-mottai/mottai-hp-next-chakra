@@ -19,9 +19,7 @@ export default function ContactForm() {
   const [value, setValue] = useState('')
   const categoryOptions = []
   for (const item of categoryOptionItems) {
-    categoryOptions.push(
-      <CategoryOption value={item} selected={value === item} />
-    )
+    categoryOptions.push(<CategoryOption value={item} key={item} />)
   }
   return (
     <Box>
@@ -90,7 +88,6 @@ export default function ContactForm() {
                 placeholder="npo-mottai@example.com"
               />
             </FormControl>
-
             <FormControl pb={4} isRequired>
               <FormLabel>件名【必須】</FormLabel>
               <Input

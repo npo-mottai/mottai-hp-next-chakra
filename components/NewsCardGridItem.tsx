@@ -10,7 +10,7 @@ type NewsItem = {
 
 export default function NewsGridItem(newsItem: NewsItem) {
   return (
-    <GridItem>
+    <GridItem key={newsItem.title}>
       <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
         <Image src={newsItem.imageUrl} alt={newsItem.title} />
         <Box p="4">

@@ -1,12 +1,11 @@
-type Props = {
+type Option = {
   value: string
-  selected: boolean
 }
 
-export default function CategoryOption(prop: Props) {
+export default function CategoryOption(option: Option) {
   return (
-    <option value={prop.value} selected={prop.selected}>
-      {prop.value}
+    <option value={option.value} key={option.value}>
+      {option.value}
     </option>
   )
 }
