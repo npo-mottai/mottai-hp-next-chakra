@@ -22,7 +22,7 @@ export default function ContactForm() {
     categoryOptions.push(<CategoryOption value={item} key={item} />)
   }
   return (
-    <Box>
+    <Box p={4} bgColor="gray.50" rounded="lg">
       <Center>
         <Box maxW={448}>
           <form action={actionUrl}>

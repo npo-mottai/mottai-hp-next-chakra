@@ -8,6 +8,7 @@ import NewsSectionSection from '../components/top/news/NewsSection'
 import SupportSection from '../components/top/support/SupportSection'
 import ContactSection from '../components/top/contact/ContactSection'
 import WithSubNavigation from '../components/NavigationBar'
+import LargeWithAppLinksAndSocial from '../components/Footer'
 
 export default function Home() {
   return (
@@ -32,18 +33,7 @@ export default function Home() {
           <ContactSection />
         </main>
       </Box>
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <LargeWithAppLinksAndSocial />
     </div>
   )
 }
