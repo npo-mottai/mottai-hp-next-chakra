@@ -1,9 +1,11 @@
 import {
   Box,
+  Image,
   Flex,
+  Spacer,
+  Show,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -12,7 +14,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react'
 import {
@@ -53,49 +54,15 @@ export default function WithSubNavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Logo
-          </Text>
-
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Image src="/images/mottai-logo.svg" alt="NPO法人 MOTTAI" />
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10} my="auto">
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}
-        >
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
+        <Show below="md">
+          <Spacer />
+        </Show>
       </Flex>
-
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -265,41 +232,35 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
+    label: '私たちについて',
+    href: '#',
+    // children: [
+    //   {
+    //     label: 'Explore Design Work',
+    //     subLabel: 'Trending Design to inspire you',
+    //     href: '#',
+    //   },
+    //   {
+    //     label: 'New & Noteworthy',
+    //     subLabel: 'Up-and-coming Designers',
+    //     href: '#',
+    //   },
+    // ],
   },
   {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
+    label: '活動',
     href: '#',
   },
   {
-    label: 'Hire Designers',
+    label: 'ニュース',
+    href: '#',
+  },
+  {
+    label: 'サポートする',
+    href: '#',
+  },
+  {
+    label: 'お問い合わせ',
     href: '#',
   },
 ]
