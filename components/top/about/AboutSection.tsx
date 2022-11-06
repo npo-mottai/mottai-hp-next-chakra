@@ -1,7 +1,7 @@
 import { Box, Button, Center, Heading, Text } from '@chakra-ui/react'
-import PrimaryButton from '../buttons/PrimaryButton'
+import PrimaryButton from '../../buttons/PrimaryButton'
 
-export default function Mottai() {
+export default function AboutSection() {
   return (
     <Box mb={12}>
       <Heading my={6}>MOTTAI とは</Heading>

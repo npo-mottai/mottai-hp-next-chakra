@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import MainVisual from '../components/MainVisual'
-import Mottai from '../components/top/Mottai'
-import ActivitySection from '../components/top/activity/ActivitySection'
-import Publication from '../components/top/publication/PublicationSection'
-import NewsSection from '../components/top/news/NewsSection'
-import Support from '../components/top/Support'
-import Contact from '../components/top/Contact'
 import { Box } from '@chakra-ui/react'
+import MainVisual from '../components/MainVisual'
+import AboutSection from '../components/top/about/AboutSection'
+import ActivitySection from '../components/top/activity/ActivitySection'
+import PublicationSection from '../components/top/publication/PublicationSection'
+import NewsSectionSection from '../components/top/news/NewsSection'
+import SupportSection from '../components/top/support/SupportSection'
+import ContactSection from '../components/top/contact/ContactSection'
 
 export default function Home() {
   return (
@@ -20,12 +19,12 @@ export default function Home() {
       <MainVisual />
       <Box maxW="960px" mx="auto" py="0" px="2rem">
         <main>
-          <Mottai />
+          <AboutSection />
           <ActivitySection />
-          <Publication />
-          <NewsSection />
-          <Support />
-          <Contact />
+          <PublicationSection />
+          <NewsSectionSection />
+          <SupportSection />
+          <ContactSection />
         </main>
       </Box>
       {/* <footer className={styles.footer}>
