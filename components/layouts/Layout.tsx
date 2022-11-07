@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Spacer, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import { ReactNode } from 'react'
 import Footer from './Footer'
@@ -16,9 +16,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderNavigation />
-      <main>{children}</main>
-      <Footer />
+      <Flex minH={'100vh'} flexDirection={'column'}>
+        <HeaderNavigation />
+        <Box flexGrow={1}>
+          <main>{children}</main>
+        </Box>
+        <Footer />
+      </Flex>
     </Box>
   )
 }
