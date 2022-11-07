@@ -14,7 +14,7 @@ export default function Home({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
       <MainVisual />
-      <Box maxW="960px" mx="auto" py="0" px="2rem">
+      <Box maxW={'62em'} mx={'auto'} py={'0'} px={'2rem'}>
         <SectionContainer
           title={'MOTTAI とは'}
           detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '#' }}

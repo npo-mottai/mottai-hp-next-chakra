@@ -8,3 +8,8 @@ type NewsSummary = {
   imageUrl: string
   description: string
 }
+
+type NewsArticle = {
+  summary: NewsSummary
+  content: string
+}
