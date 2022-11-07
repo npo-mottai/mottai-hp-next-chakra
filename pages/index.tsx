@@ -1,6 +1,5 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 import MainVisual from '../components/MainVisual'
 import About from '../components/top-page/About'
@@ -13,15 +12,7 @@ import SectionContainer from '../components/top-page/SectionContainer'
 
 export default function Home({ news }: { news: NewsSummary[] }) {
   return (
-    <div>
-      <Head>
-        <title>NPO法人 MOTTAI</title>
-        <meta
-          name="description"
-          content="MOTTAIは「当たり前の裏側にアクセスしやすい社会を創る」をビジョンに掲げて活動するNPO法人です。"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Box>
       <MainVisual />
       <Box maxW="960px" mx="auto" py="0" px="2rem">
         <SectionContainer
@@ -57,7 +48,7 @@ export default function Home({ news }: { news: NewsSummary[] }) {
           <Contact />
         </SectionContainer>
       </Box>
-    </div>
+    </Box>
   )
 }
 

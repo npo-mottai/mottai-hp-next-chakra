@@ -5,6 +5,7 @@ export default function MainVisual() {
     <Box
       bgImage="url('/images/header-background.webp')"
       bgSize="cover"
+      px={[4, 8, 12, 20, 28]}
       py={[20, 20, 40]}
       mb={[4, 8, 12]}
       opacity="0.9"
@@ -16,7 +17,7 @@ export default function MainVisual() {
           </Heading>
         </Center>
         <Center>
-          <Text as="b" fontSize={['lg', 'xl', '2xl', '3xl']} color="white">
+          <Text as="b" fontSize={['md', 'xl', '2xl', '3xl']} color="white">
             当たり前の裏側にアクセスしやすい社会を創る
           </Text>
         </Center>

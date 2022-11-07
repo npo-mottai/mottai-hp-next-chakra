@@ -7,13 +7,19 @@ export default function NewsGridItem(news: NewsSummary) {
       <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
         <Image src={news.imageUrl} alt={news.title} />
         <Box p="4">
-          <Text mb="2" as="h4" noOfLines={1}>
+          <Text mb="2" noOfLines={1} fontSize={'xs'}>
             {news.createdAt}
           </Text>
-          <Text mb="2" fontSize="lg" fontWeight="normal" as="h4" noOfLines={1}>
+          <Text
+            mb="2"
+            fontSize="lg"
+            fontWeight="semibold"
+            as="h3"
+            noOfLines={1}
+          >
             {news.title}
           </Text>
-          <Text noOfLines={4} mb="2">
+          <Text noOfLines={4} mb="2" fontSize={'sm'}>
             {news.description}
           </Text>
           <SecondaryLinkButton
