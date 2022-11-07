@@ -1,3 +1,5 @@
+import fs from 'fs'
+import matter from 'gray-matter'
 import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 import MainVisual from '../components/MainVisual'
@@ -10,7 +12,16 @@ import ContactSection from '../components/top/contact/ContactSection'
 import WithSubNavigation from '../components/NavigationBar'
 import LargeWithAppLinksAndSocial from '../components/Footer'
 
-export default function Home() {
+export default function Home({
+  news,
+}: {
+  news: {
+    data: {
+      [key: string]: any
+    }
+    slug: string
+  }[]
+}) {
   return (
     <div>
       <Head>
@@ -36,4 +47,17 @@ export default function Home() {
       <LargeWithAppLinksAndSocial />
     </div>
   )
+}
+
+/** コメントを追加する */
+export const getStaticProps = () => {
+  const newsFiles = fs.readdirSync('news')
+  const news = newsFiles.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '')
+    const fileContent = fs.readFileSync(`news/${fileName}`, 'utf-8')
+    // const { data, content } = matter(fileContent)
+    const { data } = matter(fileContent)
+    return { data, slug }
+  })
+  return { props: { news } }
 }
