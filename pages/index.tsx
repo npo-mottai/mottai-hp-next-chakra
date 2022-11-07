@@ -3,23 +3,15 @@ import matter from 'gray-matter'
 import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 import MainVisual from '../components/MainVisual'
-import AboutSection from '../components/top-page/about/AboutSection'
-import ActivitySection from '../components/top-page/activity/ActivitySection'
-import PublicationSection from '../components/top-page/publication/PublicationSection'
-import NewsSectionSection from '../components/top-page/news/NewsSection'
-import SupportSection from '../components/top-page/support/SupportSection'
-import ContactSection from '../components/top-page/contact/ContactSection'
+import About from '../components/top-page/About'
+import Activity from '../components/top-page/Activity'
+import Publication from '../components/top-page/Publication'
+import News from '../components/top-page/News'
+import Support from '../components/top-page/Support'
+import Contact from '../components/top-page/Contact'
+import SectionContainer from '../components/top-page/SectionContainer'
 
-export default function Home({
-  news,
-}: {
-  news: {
-    data: {
-      [key: string]: any
-    }
-    slug: string
-  }[]
-}) {
+export default function Home() {
   return (
     <div>
       <Head>
@@ -32,14 +24,38 @@ export default function Home({
       </Head>
       <MainVisual />
       <Box maxW="960px" mx="auto" py="0" px="2rem">
-        <main>
-          <AboutSection />
-          <ActivitySection />
-          <PublicationSection />
-          <NewsSectionSection />
-          <SupportSection />
-          <ContactSection />
-        </main>
+        <SectionContainer
+          title={'MOTTAI とは'}
+          detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '#' }}
+        >
+          {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
+          このようにタグ間に記述する */}
+          <About />
+        </SectionContainer>
+        <SectionContainer
+          title={'MOTTAI の活動'}
+          detailButton={{ text: 'MOTTAI の活動をもっと見る', href: '#' }}
+        >
+          <Activity />
+        </SectionContainer>
+        <SectionContainer title={'メディア掲載'}>
+          <Publication />
+        </SectionContainer>
+        <SectionContainer
+          title={'ニュース'}
+          detailButton={{ text: 'ニュース一覧', href: '#' }}
+        >
+          <News />
+        </SectionContainer>
+        <SectionContainer
+          title={'MOTTAI をサポートする'}
+          detailButton={{ text: 'MOTTAI をサポートする', href: '#' }}
+        >
+          <Support />
+        </SectionContainer>
+        <SectionContainer title={'お問い合わせ'}>
+          <Contact />
+        </SectionContainer>
       </Box>
     </div>
   )

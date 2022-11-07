@@ -1,7 +1,30 @@
-import { Grid } from '@chakra-ui/react'
-import NewsCardGridItem from '../../NewsCardGridItem'
+import { Box, Center, Grid, Text } from '@chakra-ui/react'
+import PrimaryLinkButton from '../buttons/PrimaryLinkButton'
+import NewsCardGridItem from '../NewsCardGridItem'
+
+// {
+//   news,
+// }: {
+//   news: {
+//     data: {
+//       [key: string]: any
+//     }
+//     slug: string
+//   }[]
+// }
 
 export default function News() {
+  return (
+    <Box>
+      <Text pb={4}>MOTTAIの最新の活動やニュースは次の通りです。</Text>
+      <Box mb={8}>
+        <NewsGrid />
+      </Box>
+    </Box>
+  )
+}
+
+function NewsGrid() {
   const news = []
   for (const newsItem of newsItems) {
     news.push(NewsCardGridItem(newsItem))

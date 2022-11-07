@@ -1,7 +1,16 @@
-import { Grid } from '@chakra-ui/react'
-import PublicationGridItem from '../../PublicationGridItem'
+import { Box, Grid, Text } from '@chakra-ui/react'
+import PublicationGridItem from '../PublicationGridItem'
 
-export default function Publications() {
+export default function Publication() {
+  return (
+    <Box>
+      <Text pb={4}>今までに次のようなメディアに掲載して頂きました。</Text>
+      <PublicationGrid />
+    </Box>
+  )
+}
+
+function PublicationGrid() {
   const publications = []
   for (const publicationItem of publicationItems) {
     publications.push(PublicationGridItem(publicationItem))

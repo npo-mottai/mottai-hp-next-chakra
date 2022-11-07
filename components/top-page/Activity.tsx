@@ -1,6 +1,15 @@
-import { Box, Heading, Text, Image, GridItem, Grid } from '@chakra-ui/react'
+import { Box, Heading, Text, Image, Grid, GridItem } from '@chakra-ui/react'
 
-export default function Activities() {
+export default function Activity() {
+  return (
+    <Box>
+      <Text pb={4}>MOTTAI では、次のような活動に取り組んでいます。</Text>
+      <ActivityGrid />
+    </Box>
+  )
+}
+
+function ActivityGrid() {
   const activities = []
   for (const activityItem of activityItems) {
     activities.push(
