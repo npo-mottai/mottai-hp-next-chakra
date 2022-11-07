@@ -7,7 +7,7 @@ type PublicationItem = {
 
 export default function PublicationGridItem(publicationItem: PublicationItem) {
   return (
-    <GridItem>
+    <GridItem key={publicationItem.title}>
       <Box width="full">
         <Heading as="h3" mb="3" fontSize="md" fontWeight="normal" noOfLines={1}>
           {publicationItem.title}
