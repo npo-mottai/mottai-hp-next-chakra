@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/react'
-import ContactForm from '../../contact-form/ContactForm'
+import ContactForm from '../../ContactForm'
 
 export default function ContactSection() {
   return (

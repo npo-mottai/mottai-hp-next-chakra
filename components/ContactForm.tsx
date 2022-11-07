@@ -11,15 +11,14 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react'
-import CategoryOption from './CategoryOption'
 
 export default function ContactForm() {
   const actionUrl =
     'https://docs.google.com/forms/u/0/d/e/1FAIpQLSc5DkYy22ThllQGH6AW6unb2NwJqKvytKcK7CGMkzF036UBIA/formResponse'
   const [value, setValue] = useState('')
-  const categoryOptions = []
-  for (const item of categoryOptionItems) {
-    categoryOptions.push(<CategoryOption value={item} key={item} />)
+  const options = []
+  for (const option of categoryOptions) {
+    options.push(<CategoryOption option={option} key={option} />)
   }
   return (
     <Center>
@@ -115,7 +114,19 @@ export default function ContactForm() {
   )
 }
 
-const categoryOptionItems = [
+type Props = {
+  option: string
+}
+
+function CategoryOption(props: Props) {
+  return (
+    <option value={props.option} key={props.option}>
+      {props.option}
+    </option>
+  )
+}
+
+const categoryOptions = [
   '各種活動について',
   '会員登録について',
   '寄付について',
