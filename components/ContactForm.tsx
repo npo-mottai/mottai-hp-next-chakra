@@ -104,7 +104,7 @@ export default function ContactForm() {
               rows={10}
             />
           </FormControl>
-          <Button colorScheme="orange" variant="outline" type="submit">
+          <Button colorScheme="blue" type="submit">
             送信する
           </Button>
           <Text pt={1}>※ 送信後Google Formsの完了画面に遷移します</Text>

@@ -9,7 +9,6 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
-  Flex,
 } from '@chakra-ui/react'
 import { FaTwitter, FaFacebook } from 'react-icons/fa'
 
@@ -53,7 +52,7 @@ const SocialButton = ({
   )
 }
 
-export default function LargeWithAppLinksAndSocial() {
+export default function Footer() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}

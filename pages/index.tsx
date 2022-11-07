@@ -3,14 +3,12 @@ import matter from 'gray-matter'
 import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 import MainVisual from '../components/MainVisual'
-import AboutSection from '../components/top/about/AboutSection'
-import ActivitySection from '../components/top/activity/ActivitySection'
-import PublicationSection from '../components/top/publication/PublicationSection'
-import NewsSectionSection from '../components/top/news/NewsSection'
-import SupportSection from '../components/top/support/SupportSection'
-import ContactSection from '../components/top/contact/ContactSection'
-import WithSubNavigation from '../components/NavigationBar'
-import LargeWithAppLinksAndSocial from '../components/Footer'
+import AboutSection from '../components/top-page/about/AboutSection'
+import ActivitySection from '../components/top-page/activity/ActivitySection'
+import PublicationSection from '../components/top-page/publication/PublicationSection'
+import NewsSectionSection from '../components/top-page/news/NewsSection'
+import SupportSection from '../components/top-page/support/SupportSection'
+import ContactSection from '../components/top-page/contact/ContactSection'
 
 export default function Home({
   news,
@@ -32,7 +30,6 @@ export default function Home({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <WithSubNavigation />
       <MainVisual />
       <Box maxW="960px" mx="auto" py="0" px="2rem">
         <main>
@@ -44,7 +41,6 @@ export default function Home({
           <ContactSection />
         </main>
       </Box>
-      <LargeWithAppLinksAndSocial />
     </div>
   )
 }
