@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import {
   Box,
   Image,
@@ -54,7 +55,9 @@ export default function HeaderNavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Image src="/images/mottai-logo.svg" alt="NPO法人 MOTTAI" />
+          <NextLink href={'/'}>
+            <Image src="/images/mottai-logo.svg" alt="NPO法人 MOTTAI" />
+          </NextLink>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10} my="auto">
             <DesktopNav />
           </Flex>

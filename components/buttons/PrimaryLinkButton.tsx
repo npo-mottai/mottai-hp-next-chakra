@@ -8,7 +8,8 @@ type Props = {
 
 export default function PrimaryLinkButton(props: Props) {
   return (
-    <NextLink href="#" passHref>
+    // TODO: passHref の意味を調べる
+    <NextLink href={'#'} passHref>
       <Button colorScheme={'orange'} variant="outline">
         {props.text}
       </Button>
