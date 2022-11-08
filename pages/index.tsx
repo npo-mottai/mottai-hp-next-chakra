@@ -10,12 +10,13 @@ import Support from '../components/top-page/Support'
 import Contact from '../components/top-page/Contact'
 import SectionContainer from '../components/top-page/SectionContainer'
 import { jaYYYYMMDD } from '../utils/date'
+import ContentContainer from '../components/ContentContainer'
 
 export default function TopPage({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
       <MainVisual title={'当たり前の裏側にアクセスしやすい社会を創る'} />
-      <Box maxW={'62em'} mx={'auto'} py={'0'} px={'2rem'}>
+      <ContentContainer>
         <SectionContainer
           title={'MOTTAI とは'}
           detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '/about' }}
@@ -53,7 +54,7 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
             <Contact />
           </SectionContainer>
         </Box>
-      </Box>
+      </ContentContainer>
     </Box>
   )
 }

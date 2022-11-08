@@ -5,18 +5,19 @@ import MainVisual from '../../components/MainVisual'
 import SectionContainer from '../../components/top-page/SectionContainer'
 import { jaYYYYMMDD } from '../../utils/date'
 import News from '../../components/top-page/News'
+import ContentContainer from '../../components/ContentContainer'
 
 export default function NewsPage({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
       <MainVisual title={'ニュース'} />
-      <Box maxW={'62em'} mx={'auto'} py={'0'} px={'2rem'}>
+      <ContentContainer>
         <SectionContainer title={'ニュース一覧'}>
           {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
           このようにタグ間に記述する */}
           <News news={news} />
         </SectionContainer>
-      </Box>
+      </ContentContainer>
     </Box>
   )
 }

@@ -17,7 +17,10 @@ import {
   CommonH2,
   CommonH3,
   CommonH4,
+  CommonListItem,
+  CommonOrderedList,
   CommonText,
+  CommonUnorderedList,
 } from '../../components/Common'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
@@ -95,13 +98,13 @@ const customChakraUIRenderTheme = {
     return <CommonExternalLinkText href={props.href} text={props.children} />
   },
   ul: (props: any) => {
-    return <UnorderedList pl={[2]}>{props.children}</UnorderedList>
+    return <CommonUnorderedList>{props.children}</CommonUnorderedList>
   },
   ol: (props: any) => {
-    return <OrderedList pl={[2]}>{props.children}</OrderedList>
+    return <CommonOrderedList>{props.children}</CommonOrderedList>
   },
   li: (props: any) => {
-    return <ListItem>{props.children}</ListItem>
+    return <CommonListItem>{props.children}</CommonListItem>
   },
   img: (props: any) => {
     return <Image rounded={'lg'} src={props.src} alt={props.alt} />
