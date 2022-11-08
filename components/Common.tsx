@@ -41,7 +41,9 @@ export const CommonText = (props: props) => {
 export const CommonExternalLinkText = (aProps: aProps) => {
   return (
     <Link href={aProps.href} color="teal.500" isExternal>
-      {aProps.text} <ExternalLinkIcon mx="2px" />
+      <Text pb={4}>
+        {aProps.text} <ExternalLinkIcon mx="2px" />
+      </Text>
     </Link>
   )
 }
