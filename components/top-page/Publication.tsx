@@ -1,10 +1,11 @@
-import { Box, Grid, Text } from '@chakra-ui/react'
+import { Box, Grid } from '@chakra-ui/react'
+import { CommonText } from '../Common'
 import PublicationGridItem from '../PublicationGridItem'
 
 export default function Publication() {
   return (
     <Box>
-      <Text pb={4}>今までに次のようなメディアに掲載して頂きました。</Text>
+      <CommonText text="今までに次のようなメディアに掲載して頂きました。" />
       <PublicationGrid />
     </Box>
   )

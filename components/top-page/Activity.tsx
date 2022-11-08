@@ -1,9 +1,10 @@
 import { Box, Heading, Text, Image, Grid, GridItem } from '@chakra-ui/react'
+import { CommonText } from '../Common'
 
 export default function Activity() {
   return (
     <Box>
-      <Text pb={4}>MOTTAI では、次のような活動に取り組んでいます。</Text>
+      <CommonText text="MOTTAI では、次のような活動に取り組んでいます。" />
       <ActivityGrid />
     </Box>
   )
