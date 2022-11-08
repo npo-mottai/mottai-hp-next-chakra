@@ -236,7 +236,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: '私たちについて',
-    href: '#',
+    href: '/about',
     // children: [
     //   {
     //     label: 'Explore Design Work',
@@ -252,18 +252,18 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: '活動',
-    href: '#',
+    href: '/activities',
   },
   {
     label: 'ニュース',
-    href: '#',
+    href: '/news',
   },
   {
     label: 'サポートする',
-    href: '#',
+    href: '/support',
   },
   {
     label: 'お問い合わせ',
-    href: '#',
+    href: '#contact',
   },
 ]

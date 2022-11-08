@@ -11,14 +11,14 @@ import Contact from '../components/top-page/Contact'
 import SectionContainer from '../components/top-page/SectionContainer'
 import { jaYYYYMMDD } from '../utils/date'
 
-export default function Home({ news }: { news: NewsSummary[] }) {
+export default function TopPage({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
-      <MainVisual />
+      <MainVisual title={'当たり前の裏側にアクセスしやすい社会を創る'} />
       <Box maxW={'62em'} mx={'auto'} py={'0'} px={'2rem'}>
         <SectionContainer
           title={'MOTTAI とは'}
-          detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '#' }}
+          detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '/about' }}
         >
           {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
           このようにタグ間に記述する */}
@@ -26,7 +26,10 @@ export default function Home({ news }: { news: NewsSummary[] }) {
         </SectionContainer>
         <SectionContainer
           title={'MOTTAI の活動'}
-          detailButton={{ text: 'MOTTAI の活動をもっと見る', href: '#' }}
+          detailButton={{
+            text: 'MOTTAI の活動をもっと見る',
+            href: '/activities',
+          }}
         >
           <Activity />
         </SectionContainer>
@@ -35,19 +38,21 @@ export default function Home({ news }: { news: NewsSummary[] }) {
         </SectionContainer>
         <SectionContainer
           title={'ニュース'}
-          detailButton={{ text: 'ニュース一覧', href: '#' }}
+          detailButton={{ text: 'ニュース一覧', href: '/news' }}
         >
           <News news={news} />
         </SectionContainer>
         <SectionContainer
           title={'MOTTAI をサポートする'}
-          detailButton={{ text: 'MOTTAI をサポートする', href: '#' }}
+          detailButton={{ text: 'MOTTAI をサポートする', href: '/support' }}
         >
           <Support />
         </SectionContainer>
-        <SectionContainer title={'お問い合わせ'}>
-          <Contact />
-        </SectionContainer>
+        <Box id="contact">
+          <SectionContainer title={'お問い合わせ'}>
+            <Contact />
+          </SectionContainer>
+        </Box>
       </Box>
     </Box>
   )

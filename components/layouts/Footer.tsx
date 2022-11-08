@@ -62,16 +62,15 @@ export default function Footer() {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={'flex-start'}>
             <ListHeader>NPO法人MOTTAI</ListHeader>
-            <Link href={'#'}>私たちについて</Link>
-            <Link href={'#'}>MOTTAI の活動</Link>
-            <Link href={'#'}>メディア掲載</Link>
-            <Link href={'#'}>ニュース</Link>
-            <Link href={'#'}>サポートする</Link>
-            <Link href={'#'}>お問い合わせ</Link>
+            <Link href={'/about'}>私たちについて</Link>
+            <Link href={'/activities'}>MOTTAI の活動</Link>
+            <Link href={'/news'}>ニュース</Link>
+            <Link href={'/support'}>サポートする</Link>
+            <Link href={'/#contact'}>お問い合わせ</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>法的事項</ListHeader>
-            <Link href={'#'}>プライバシーポリシー</Link>
+            <Link href={'/privacy'}>プライバシーポリシー</Link>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -5,7 +5,7 @@ import NewsCardGridItem from '../NewsCardGridItem'
 export default function News({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
-      <CommonText text="MOTTAIの最新の活動やニュースは次の通りです。" />
+      <CommonText text="MOTTAIの最新の活動やニュースを更新しています。" />
       <Box mb={8}>
         <NewsGrid news={news} />
       </Box>
