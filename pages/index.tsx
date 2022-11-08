@@ -9,6 +9,7 @@ import News from '../components/top-page/News'
 import Support from '../components/top-page/Support'
 import Contact from '../components/top-page/Contact'
 import SectionContainer from '../components/top-page/SectionContainer'
+import { jaYYYYMMDD } from '../utils/date'
 
 export default function Home({ news }: { news: NewsSummary[] }) {
   return (
@@ -67,12 +68,13 @@ export const getStaticProps = (): {
 } => {
   const newsFiles = fs
     .readdirSync('news-articles')
+    .reverse()
     .slice(0, TOP_PAGE_NEWS_COUNT)
   const news = newsFiles.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '')
     const fileContent = fs.readFileSync(`news-articles/${fileName}`, 'utf-8')
     const { data } = matter(fileContent)
-    const createdAt = data.createdAt as string
+    const createdAt = jaYYYYMMDD(data.createdAt)
     const title = data.title as string
     const imageUrl = data.imageUrl as string
     const description = data.description as string
