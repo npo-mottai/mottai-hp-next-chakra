@@ -6,17 +6,20 @@ import {
   Text,
   UnorderedList,
   Image,
+  Link,
 } from '@chakra-ui/react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import {
+  CommonExternalLinkText,
   CommonH2,
   CommonH3,
   CommonH4,
   CommonText,
 } from '../../components/Common'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function NewsArticle({
   newsArticle,
@@ -87,6 +90,9 @@ const customChakraUIRenderTheme = {
   },
   p: (props: any) => {
     return <CommonText text={props.children} />
+  },
+  a: (props: any) => {
+    return <CommonExternalLinkText href={props.href} text={props.children} />
   },
   ul: (props: any) => {
     return <UnorderedList pl={[2]}>{props.children}</UnorderedList>

@@ -1,6 +1,12 @@
-import { Heading, propNames, Text } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { Heading, Link, Text } from '@chakra-ui/react'
 
 type props = {
+  text: string
+}
+
+type aProps = {
+  href: string
   text: string
 }
 
@@ -30,4 +36,12 @@ export const CommonH4 = (props: props) => {
 
 export const CommonText = (props: props) => {
   return <Text pb={4}>{props.text}</Text>
+}
+
+export const CommonExternalLinkText = (aProps: aProps) => {
+  return (
+    <Link href={aProps.href} color="teal.500" isExternal>
+      {aProps.text} <ExternalLinkIcon mx="2px" />
+    </Link>
+  )
 }
