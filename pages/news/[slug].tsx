@@ -1,8 +1,28 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  ListItem,
+  OrderedList,
+  Text,
+  UnorderedList,
+  Image,
+  Link,
+} from '@chakra-ui/react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+import {
+  CommonExternalLinkText,
+  CommonH2,
+  CommonH3,
+  CommonH4,
+  CommonListItem,
+  CommonOrderedList,
+  CommonText,
+  CommonUnorderedList,
+} from '../../components/Common'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function NewsArticle({
   newsArticle,
@@ -10,10 +30,10 @@ export default function NewsArticle({
   newsArticle: NewsArticle
 }) {
   return (
-    <Box maxW={'48em'} mx={'auto'} py={0} px={'2rem'}>
-      {/* ここにパンくずリストを実装する
-      記事のスタイルに Chakra UI を適用できるようにする */}
-      <h1>{newsArticle.summary.title}</h1>
+    <Box maxW={'48em'} mx={'auto'} my={12} py={0} px={'2rem'}>
+      {/* TODO: ここにパンくずリストを実装する */}
+      <Heading fontSize={'md'}>{newsArticle.summary.title}</Heading>
+      <Text>投稿日：{newsArticle.summary.createdAt}</Text>
       <ReactMarkdown
         components={ChakraUIRenderer(customChakraUIRenderTheme)}
         skipHtml
@@ -63,27 +83,30 @@ export function getStaticPaths() {
 const customChakraUIRenderTheme = {
   // TODO: 本当は any はやめたい
   h2: (props: any) => {
-    return (
-      <Heading mt={6} mb={4} size={'lg'} color="orange.500">
-        {props.children}
-      </Heading>
-    )
+    return <CommonH2 text={props.children} />
   },
   h3: (props: any) => {
-    return (
-      <Heading mt={6} mb={4} as={'h3'} size={'md'} color="orange.500">
-        {props.children}
-      </Heading>
-    )
+    return <CommonH3 text={props.children} />
   },
   h4: (props: any) => {
-    return (
-      <Heading mt={6} mb={4} as={'h4'} size={'sm'} color="orange.500">
-        {props.children}
-      </Heading>
-    )
+    return <CommonH4 text={props.children} />
   },
   p: (props: any) => {
-    return <Text mb={2}>{props.children}</Text>
+    return <CommonText text={props.children} />
+  },
+  a: (props: any) => {
+    return <CommonExternalLinkText href={props.href} text={props.children} />
+  },
+  ul: (props: any) => {
+    return <CommonUnorderedList>{props.children}</CommonUnorderedList>
+  },
+  ol: (props: any) => {
+    return <CommonOrderedList>{props.children}</CommonOrderedList>
+  },
+  li: (props: any) => {
+    return <CommonListItem>{props.children}</CommonListItem>
+  },
+  img: (props: any) => {
+    return <Image rounded={'lg'} src={props.src} alt={props.alt} />
   },
 }

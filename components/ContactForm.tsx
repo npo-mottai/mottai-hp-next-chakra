@@ -35,7 +35,7 @@ export default function ContactForm() {
                 setValue(e.target.value)
               }}
             >
-              {categoryOptions}
+              {options}
             </Select>
           </FormControl>
           <Flex>

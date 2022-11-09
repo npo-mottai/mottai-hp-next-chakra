@@ -2,7 +2,7 @@ import { Box, Flex, Spacer, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import { ReactNode } from 'react'
 import Footer from './Footer'
-import HeaderNavigation from './NavigationBar'
+import HeaderNavigation from './HeaderNavigation'
 
 /** */
 export default function Layout({ children }: { children: ReactNode }) {

@@ -9,15 +9,17 @@ import News from '../components/top-page/News'
 import Support from '../components/top-page/Support'
 import Contact from '../components/top-page/Contact'
 import SectionContainer from '../components/top-page/SectionContainer'
+import { jaYYYYMMDD } from '../utils/date'
+import ContentContainer from '../components/ContentContainer'
 
-export default function Home({ news }: { news: NewsSummary[] }) {
+export default function TopPage({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
-      <MainVisual />
-      <Box maxW={'62em'} mx={'auto'} py={'0'} px={'2rem'}>
+      <MainVisual title={'当たり前の裏側にアクセスしやすい社会を創る'} />
+      <ContentContainer>
         <SectionContainer
           title={'MOTTAI とは'}
-          detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '#' }}
+          detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '/about' }}
         >
           {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
           このようにタグ間に記述する */}
@@ -25,7 +27,10 @@ export default function Home({ news }: { news: NewsSummary[] }) {
         </SectionContainer>
         <SectionContainer
           title={'MOTTAI の活動'}
-          detailButton={{ text: 'MOTTAI の活動をもっと見る', href: '#' }}
+          detailButton={{
+            text: 'MOTTAI の活動をもっと見る',
+            href: '/activities',
+          }}
         >
           <Activity />
         </SectionContainer>
@@ -34,20 +39,22 @@ export default function Home({ news }: { news: NewsSummary[] }) {
         </SectionContainer>
         <SectionContainer
           title={'ニュース'}
-          detailButton={{ text: 'ニュース一覧', href: '#' }}
+          detailButton={{ text: 'ニュース一覧', href: '/news' }}
         >
           <News news={news} />
         </SectionContainer>
         <SectionContainer
           title={'MOTTAI をサポートする'}
-          detailButton={{ text: 'MOTTAI をサポートする', href: '#' }}
+          detailButton={{ text: 'MOTTAI をサポートする', href: '/support' }}
         >
           <Support />
         </SectionContainer>
-        <SectionContainer title={'お問い合わせ'}>
-          <Contact />
-        </SectionContainer>
-      </Box>
+        <Box id="contact">
+          <SectionContainer title={'お問い合わせ'}>
+            <Contact />
+          </SectionContainer>
+        </Box>
+      </ContentContainer>
     </Box>
   )
 }
@@ -67,12 +74,13 @@ export const getStaticProps = (): {
 } => {
   const newsFiles = fs
     .readdirSync('news-articles')
+    .reverse()
     .slice(0, TOP_PAGE_NEWS_COUNT)
   const news = newsFiles.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '')
     const fileContent = fs.readFileSync(`news-articles/${fileName}`, 'utf-8')
     const { data } = matter(fileContent)
-    const createdAt = data.createdAt as string
+    const createdAt = jaYYYYMMDD(data.createdAt)
     const title = data.title as string
     const imageUrl = data.imageUrl as string
     const description = data.description as string

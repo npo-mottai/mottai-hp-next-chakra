@@ -1,10 +1,11 @@
-import { Box, Grid, Text } from '@chakra-ui/react'
+import { Box, Grid } from '@chakra-ui/react'
+import { CommonText } from '../Common'
 import NewsCardGridItem from '../NewsCardGridItem'
 
 export default function News({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
-      <Text pb={4}>MOTTAIの最新の活動やニュースは次の通りです。</Text>
+      <CommonText text="MOTTAIの最新の活動やニュースを更新しています。" />
       <Box mb={8}>
         <NewsGrid news={news} />
       </Box>

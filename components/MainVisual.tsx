@@ -1,6 +1,10 @@
 import { Box, Center, Heading, Text } from '@chakra-ui/react'
 
-export default function MainVisual() {
+type Props = {
+  title: string
+}
+
+export default function MainVisual(props: Props) {
   return (
     <Box
       bgImage="url('/images/header-background.webp')"
@@ -18,7 +22,7 @@ export default function MainVisual() {
         </Center>
         <Center>
           <Text as="b" fontSize={['md', 'xl', '2xl', '3xl']} color="white">
-            当たり前の裏側にアクセスしやすい社会を創る
+            {props.title}
           </Text>
         </Center>
       </Box>
