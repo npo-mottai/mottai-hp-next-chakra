@@ -2,6 +2,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import {
   Box,
   Heading,
+  Image,
   Link,
   ListItem,
   OrderedList,
@@ -17,6 +18,11 @@ type Props = {
 type AProps = {
   href: string
   text: string
+}
+
+type ImageProps = {
+  src: string
+  alt: string
 }
 
 type ListProps = {
@@ -49,6 +55,10 @@ export const CommonH4 = (props: Props) => {
 
 export const CommonText = (props: Props) => {
   return <Text pb={4}>{props.text}</Text>
+}
+
+export const CommonImage = (props: ImageProps) => {
+  return <Image rounded={'lg'} src={props.src} alt={props.alt} />
 }
 
 export const CommonExternalLinkText = (aProps: AProps) => {
