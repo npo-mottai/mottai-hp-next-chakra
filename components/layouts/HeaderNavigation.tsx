@@ -3,8 +3,6 @@ import {
   Box,
   Image,
   Flex,
-  Spacer,
-  Show,
   Text,
   IconButton,
   Stack,
@@ -16,6 +14,7 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
+  Button,
 } from '@chakra-ui/react'
 import {
   HamburgerIcon,
@@ -62,9 +61,27 @@ export default function HeaderNavigation() {
             <DesktopNav />
           </Flex>
         </Flex>
-        <Show below="md">
-          <Spacer />
-        </Show>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={'flex-end'}
+          direction={'row'}
+          spacing={6}
+        >
+          <Button
+            as={'a'}
+            fontSize={'xs'}
+            fontWeight={600}
+            px={2}
+            color={'white'}
+            bg={'teal.600'}
+            href={'#'}
+            _hover={{
+              bg: 'teal.300',
+            }}
+          >
+            サポートする
+          </Button>
+        </Stack>
       </Flex>
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
