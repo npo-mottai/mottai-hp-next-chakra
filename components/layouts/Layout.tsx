@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </Head>
       <Flex minH={'100vh'} flexDirection={'column'}>
         <HeaderNavigation />
-        <Box flexGrow={1}>
+        <Box flexGrow={1} mb={20}>
           <main>{children}</main>
         </Box>
         <Footer />
