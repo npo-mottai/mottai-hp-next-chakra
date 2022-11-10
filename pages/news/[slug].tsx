@@ -1,13 +1,4 @@
-import {
-  Box,
-  Heading,
-  ListItem,
-  OrderedList,
-  Text,
-  UnorderedList,
-  Image,
-  Link,
-} from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
@@ -17,6 +8,7 @@ import {
   CommonH2,
   CommonH3,
   CommonH4,
+  CommonImage,
   CommonListItem,
   CommonOrderedList,
   CommonText,
@@ -107,6 +99,6 @@ const customChakraUIRenderTheme = {
     return <CommonListItem>{props.children}</CommonListItem>
   },
   img: (props: any) => {
-    return <Image rounded={'lg'} src={props.src} alt={props.alt} />
+    return <CommonImage src={props.src} alt={props.alt}></CommonImage>
   },
 }
