@@ -13,7 +13,7 @@ export default function Request() {
           <CommonListItem>日程と日時について</CommonListItem>
           <CommonListItem>謝礼金額について</CommonListItem>
         </CommonUnorderedList>
-        <CommonText text="を含む内容を、下記のフォームにご入力お願いします。フォームにご入力いただきましたメールアドレスに、数営業日以内に返信致します" />
+        <CommonText text="を含む内容を、下記のフォームにご入力お願いします。フォームにご入力いただきましたメールアドレスに、数営業日以内に返信致します。" />
       </Box>
       <ContactForm />
     </Box>
