@@ -72,11 +72,19 @@ export const CommonExternalLinkText = (aProps: AProps) => {
 }
 
 export const CommonUnorderedList = (props: ListProps) => {
-  return <UnorderedList pl={[2]}>{props.children}</UnorderedList>
+  return (
+    <UnorderedList pl={[2]} pb={4}>
+      {props.children}
+    </UnorderedList>
+  )
 }
 
 export const CommonOrderedList = (props: ListProps) => {
-  return <OrderedList pl={[2]}>{props.children}</OrderedList>
+  return (
+    <OrderedList pl={[2]} pb={4}>
+      {props.children}
+    </OrderedList>
+  )
 }
 
 export const CommonListItem = (props: ListProps) => {
