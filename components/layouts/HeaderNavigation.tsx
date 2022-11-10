@@ -74,7 +74,7 @@ export default function HeaderNavigation() {
             px={2}
             color={'white'}
             bg={'teal.600'}
-            href={'#'}
+            href={'/support'}
             _hover={{
               bg: 'teal.300',
             }}
