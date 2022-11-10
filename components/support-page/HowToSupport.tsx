@@ -72,20 +72,20 @@ const supportItems = [
     description:
       '食に関する体験を様々な地域で行い、多くの人を巻き込みながら「当たり前の裏側にアクセスしやすい社会を創る」ことがNPO法人MOTTAIの目指すミッションです。そのような活動の運営費用・施設使用料などのために寄付をお願いしています。',
     buttonText: '寄付でサポートする',
-    href: '/donation',
+    href: '/support/donation',
   },
   {
     title: 'メンバーとしてサポート',
     description:
       'プロジェクトの企画・広報・マネジメントなど、MOTTAIの活動を手伝ってみたいという方や、猟師・農家・漁師の方で何か教えてみたい人などを募集しています。プロボノやインターンとしての参画も受け付けおりますので、お気軽にお問い合わせください。',
     buttonText: 'メンバーとしてサポートする',
-    href: '/pro-bono',
+    href: '/support/pro-bono',
   },
   {
     title: '講演依頼などでサポート',
     description:
       '代表の菅田悠介をはじめとするNPO法人MOTTAIのメンバーによる講演依頼や取材依頼など、様々なご依頼を受け付けております。お問い合わせフォームよりお気軽にお問い合わせいただき、ご希望の内容をお知らせください。',
     buttonText: '講演依頼などを申し込む',
-    href: '/request',
+    href: '/support/request',
   },
 ]
