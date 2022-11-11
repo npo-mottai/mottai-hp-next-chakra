@@ -53,19 +53,19 @@ type ActivityItem = {
 const activityItems: ActivityItem[] = [
   {
     title: '罠オーナー制度',
-    imageUrl: '/images/activity-1-trap-owner.jpg',
+    imageUrl: '/images/activity-1-trap-owner.webp',
     description:
       '市民オーナーが罠の狩猟にかかる資金などを提供し、見返りとして狩猟や農業体験などをオーナーに提供するという仕組みです。獣害対策、関係人口増加、環境教育の機会増加、猟師の負担軽減などが見込まれます。',
   },
   {
     title: 'モッタイNight',
-    imageUrl: '/images/activity-2-mottai-night.jpg',
+    imageUrl: '/images/activity-2-mottai-night.webp',
     description:
       '廃棄になりそうな食材を持ち寄って、カレーや鍋などを作る料理会です。元は代表菅田の友人が始めた「地球にちょこっと恩返し」をコンセプトに行われる活動でしたが、名前をのれん分けしてもらうことで様々な場所で行われるようになりました。',
   },
   {
     title: '体験事業',
-    imageUrl: '/images/activity-3-other.jpg',
+    imageUrl: '/images/activity-3-other.webp',
     description:
       '上記プロジェクト以外にも、禅から学ぶ食体験、古民家改装、農業体験、漁業体験、DIYなど様々な体験を随時企画していきます。',
   },

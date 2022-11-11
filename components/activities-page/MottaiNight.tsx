@@ -34,7 +34,7 @@ export default function MottaiNight() {
         <GridItem>
           <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
             <CommonImage
-              src={'/images/mottai-night-1.jpg'}
+              src={'/images/mottai-night-1.webp'}
               alt={'mottai-night-1'}
             />
           </Box>
@@ -42,7 +42,7 @@ export default function MottaiNight() {
         <GridItem>
           <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
             <CommonImage
-              src={'/images/mottai-night-2.jpg'}
+              src={'/images/mottai-night-2.webp'}
               alt={'mottai-night-2'}
             />
           </Box>
@@ -50,7 +50,7 @@ export default function MottaiNight() {
         <GridItem>
           <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
             <CommonImage
-              src={'/images/mottai-night-3.jpg'}
+              src={'/images/mottai-night-3.webp'}
               alt={'mottai-night-3'}
             />
           </Box>

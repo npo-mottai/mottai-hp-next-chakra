@@ -51,7 +51,7 @@ const RepresentativeProfile = () => {
         <Box boxSize={'xs'}>
           <Image
             rounded={'full'}
-            src={'/images/sugata-yusuke.jpg'}
+            src={'/images/sugata-yusuke.webp'}
             alt={'菅田悠介'}
           />
         </Box>
