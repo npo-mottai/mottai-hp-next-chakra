@@ -2,7 +2,6 @@
 /**  */
 type NewsSummary = {
   slug: string
-  // TODO: DateTime にする？
   createdAt: string
   title: string
   imageUrl: string

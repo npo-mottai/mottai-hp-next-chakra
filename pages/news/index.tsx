@@ -6,12 +6,14 @@ import SectionContainer from '../../components/top-page/SectionContainer'
 import { jaYYYYMMDD } from '../../utils/date'
 import News from '../../components/top-page/News'
 import ContentContainer from '../../components/ContentContainer'
+import TopicPath from '../../components/TopicPath'
 
 export default function NewsPage({ news }: { news: NewsSummary[] }) {
   return (
     <Box>
       <MainVisual title={'ニュース'} />
       <ContentContainer>
+        <TopicPath />
         <SectionContainer title={'ニュース一覧'}>
           {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
           このようにタグ間に記述する */}
