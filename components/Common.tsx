@@ -63,11 +63,9 @@ export const CommonImage = (props: ImageProps) => {
 
 export const CommonExternalLinkText = (aProps: AProps) => {
   return (
-    <Box pb={4}>
-      <Link href={aProps.href} color="teal.500" isExternal>
-        {aProps.text} <ExternalLinkIcon mx="2px" />
-      </Link>
-    </Box>
+    <Link href={aProps.href} color="teal.500" isExternal pb={4}>
+      {aProps.text} <ExternalLinkIcon mx="2px" />
+    </Link>
   )
 }
 
