@@ -5,14 +5,17 @@ const publicationItems = [
   {
     title: 'TEDx Keio USFC 登壇',
     imageUrl: '/images/youtube-1-tedx.png',
+    href: 'https://www.youtube.com/watch?v=nAWJgywLsAw&ab_channel=TEDxTalks"',
   },
   {
     title: '食べるを考える',
     imageUrl: '/images/youtube-2-taberu-wo-kangaeru.png',
+    href: 'https://www.youtube.com/watch?v=KiLChQ3Mwkg&feature=youtu.be&ab_channel=NANAME',
   },
   {
     title: 'ANN News "食"のウラ側にある命の重さを考える',
     imageUrl: '/images/youtube-3-sdgs.png',
+    href: 'https://www.youtube.com/watch?v=KiLChQ3Mwkg&feature=youtu.be&ab_channel=NANAME',
   },
 ]
 
