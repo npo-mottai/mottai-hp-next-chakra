@@ -5,14 +5,26 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export default function TopicPath() {
   const router = useRouter()
-  const currentPath = router.asPath.replace(/\/$/, '').split('/')
+  const currentPath = router.asPath.replace(/\/$/, '').split('/').slice(1)
   const topicPaths = []
+  topicPaths.push(
+    <Box as="span" key={'/'}>
+      <NextLink href={'/'}>
+        <Text as="span" color={'teal.600'}>
+          ホーム
+        </Text>
+      </NextLink>
+      <Text as="span" px={1} color={'gray.400'}>
+        <ChevronRightIcon />
+      </Text>
+    </Box>
+  )
   let previousPath = ''
   for (const path of currentPath) {
     const isFinal = path == currentPath[currentPath.length - 1]
     topicPaths.push(
       <Box as="span" key={path}>
-        <NextLink href={`/${previousPath}/${path}`}>
+        <NextLink href={`/${previousPath}${path}`}>
           <Text as="span" color={'teal.600'}>
             {labelByPath(`${path}`)}
           </Text>
