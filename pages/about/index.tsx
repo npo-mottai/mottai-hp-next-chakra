@@ -8,11 +8,13 @@ import Origin from '../../components/about-page/Origin'
 import Message from '../../components/about-page/Message'
 import Publications from '../../components/about-page/Publications'
 import Corporate from '../../components/about-page/Corporate'
+import TopicPath from '../../components/TopicPath'
 
 export default function AboutPage() {
   return (
     <Box>
       <MainVisual title={'私たちについて'} />
+      <TopicPath />
       <ContentContainer>
         <SectionContainer title={'MOTTAI とは'}>
           <About />

@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Divider, Heading, Text } from '@chakra-ui/react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
@@ -14,7 +14,7 @@ import {
   CommonText,
   CommonUnorderedList,
 } from '../../components/Common'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
+import TopicPath from '../../components/TopicPath'
 
 export default function NewsArticle({
   newsArticle,
@@ -23,7 +23,7 @@ export default function NewsArticle({
 }) {
   return (
     <Box maxW={'48em'} mx={'auto'} my={12} py={0} px={'2rem'}>
-      {/* TODO: ここにパンくずリストを実装する */}
+      <TopicPath />
       <Heading fontSize={'md'}>{newsArticle.summary.title}</Heading>
       <Text>投稿日：{newsArticle.summary.createdAt}</Text>
       <ReactMarkdown
@@ -100,5 +100,8 @@ const customChakraUIRenderTheme = {
   },
   img: (props: any) => {
     return <CommonImage src={props.src} alt={props.alt}></CommonImage>
+  },
+  hr: (_: any) => {
+    return <Divider my={8} />
   },
 }
