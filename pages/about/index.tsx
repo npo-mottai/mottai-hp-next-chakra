@@ -14,8 +14,8 @@ export default function AboutPage() {
   return (
     <Box>
       <MainVisual title={'私たちについて'} />
-      <TopicPath />
       <ContentContainer>
+        <TopicPath />
         <SectionContainer title={'MOTTAI とは'}>
           <About />
         </SectionContainer>

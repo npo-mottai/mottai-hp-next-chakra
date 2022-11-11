@@ -1,46 +1,30 @@
 import NextLink from 'next/link'
 import { Box, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export default function TopicPath() {
   const router = useRouter()
-  const currentPath = router.asPath
-  // const result = currentPath.replace(/\/$/, '').split('/')
-  // console.log(`result: ${result}`)
-  const result = ['', 'news', '2022-07-27-sustabi']
+  const currentPath = router.asPath.replace(/\/$/, '').split('/')
   const topicPaths = []
   let previousPath = ''
-  // topicPaths.push(
-  //   <Box as="span" key={'/'}>
-  //     <NextLink href={'/'}>
-  //       <Text as="span" color={'teal.600'}>
-  //         ホーム
-  //       </Text>
-  //     </NextLink>
-  //     <Text as="span" px={1} color={'gray.400'}>
-  //       /
-  //     </Text>
-  //   </Box>
-  // )
-  for (const e of result) {
-    const path = e
-    console.log('============')
-    console.log(`path: ${path}`)
-    console.log('============')
+  for (const path of currentPath) {
+    const isFinal = path == currentPath[currentPath.length - 1]
     topicPaths.push(
       <Box as="span" key={path}>
-        <NextLink href={`/${path}`}>
+        <NextLink href={`/${previousPath}/${path}`}>
           <Text as="span" color={'teal.600'}>
-            {labelByPath(`${e}`)}
+            {labelByPath(`${path}`)}
           </Text>
         </NextLink>
-        <Text as="span" px={1} color={'gray.400'}>
-          /
-        </Text>
+        {!isFinal && (
+          <Text as="span" px={1} color={'gray.400'}>
+            <ChevronRightIcon />
+          </Text>
+        )}
       </Box>
     )
-    // previousPath = `${path}/`
-    previousPath = `${previousPath}${e}/`
+    previousPath = `${previousPath}${path}/`
   }
   return <Box mb={4}>{topicPaths}</Box>
 }
