@@ -49,7 +49,7 @@ export default function Donation() {
           </Tbody>
         </Table>
       </TableContainer>
-      <ContactForm />
+      <ContactForm defaultValue={'寄付について'} />
     </Box>
   )
 }
