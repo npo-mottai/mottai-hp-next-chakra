@@ -12,10 +12,14 @@ import {
   Textarea,
 } from '@chakra-ui/react'
 
-export default function ContactForm() {
+type Props = {
+  defaultValue?: string
+}
+
+export default function ContactForm(props: Props) {
   const actionUrl =
     'https://docs.google.com/forms/u/0/d/e/1FAIpQLSc5DkYy22ThllQGH6AW6unb2NwJqKvytKcK7CGMkzF036UBIA/formResponse'
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(props.defaultValue ?? '')
   const options = []
   for (const option of categoryOptions) {
     options.push(<CategoryOption option={option} key={option} />)
@@ -114,11 +118,11 @@ export default function ContactForm() {
   )
 }
 
-type Props = {
+type OptionProps = {
   option: string
 }
 
-function CategoryOption(props: Props) {
+function CategoryOption(props: OptionProps) {
   return (
     <option value={props.option} key={props.option}>
       {props.option}

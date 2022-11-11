@@ -15,7 +15,7 @@ export default function Request() {
         </CommonUnorderedList>
         <CommonText text="を含む内容を、下記のフォームにご入力お願いします。フォームにご入力いただきましたメールアドレスに、数営業日以内に返信致します。" />
       </Box>
-      <ContactForm />
+      <ContactForm defaultValue={'講演依頼'} />
     </Box>
   )
 }
