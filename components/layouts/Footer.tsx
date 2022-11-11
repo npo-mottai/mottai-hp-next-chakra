@@ -89,8 +89,11 @@ export default function Footer() {
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}
         >
-          <Text>©2020– NPO法人 MOTTAI</Text>
-
+          <Text fontSize={'sm'}>
+            ©2020– NPO法人 MOTTAI
+            <br />
+            神奈川県小田原市２４７番３
+          </Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton
               label={'Facebook'}
