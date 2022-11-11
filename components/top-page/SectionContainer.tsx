@@ -2,9 +2,21 @@ import { Box, Center, Heading } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import PrimaryLinkButton from '../buttons/PrimaryLinkButton'
 
-export default function SectionContainer(props: Prop) {
+type Props = {
+  id: string
+  title: string
+  children: ReactNode
+  detailButton?: DetailButton
+}
+
+type DetailButton = {
+  text: string
+  href: string
+}
+
+export default function SectionContainer(props: Props) {
   return (
-    <Box mb={12}>
+    <Box mb={12} id={props.id}>
       <Heading mt={6} mb={4} color="orange.500">
         {props.title}
       </Heading>
@@ -19,15 +31,4 @@ export default function SectionContainer(props: Prop) {
       )}
     </Box>
   )
-}
-
-type Prop = {
-  title: string
-  children: ReactNode
-  detailButton?: DetailButton
-}
-
-type DetailButton = {
-  text: string
-  href: string
 }

@@ -6,7 +6,9 @@ export default function Publication() {
   return (
     <Box>
       <CommonText text="今までに次のようなメディアに掲載して頂きました。" />
-      <PublicationGrid />
+      <Box pb={8}>
+        <PublicationGrid />
+      </Box>
     </Box>
   )
 }

@@ -18,6 +18,7 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
       <MainVisual title={'当たり前の裏側にアクセスしやすい社会を創る'} />
       <ContentContainer>
         <SectionContainer
+          id={'about'}
           title={'MOTTAI とは'}
           detailButton={{ text: 'NPO法人 MOTTAI の詳細', href: '/about' }}
         >
@@ -26,6 +27,7 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
           <About />
         </SectionContainer>
         <SectionContainer
+          id={'activity'}
           title={'MOTTAI の活動'}
           detailButton={{
             text: 'MOTTAI の活動をもっと見る',
@@ -34,26 +36,33 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
         >
           <Activity />
         </SectionContainer>
-        <SectionContainer title={'メディア掲載'}>
+        <SectionContainer
+          id={'publications'}
+          title={'メディア掲載'}
+          detailButton={{
+            text: '実績・メディア掲載を見る',
+            href: '/about#publications',
+          }}
+        >
           <Publication />
         </SectionContainer>
         <SectionContainer
+          id={'news'}
           title={'ニュース'}
           detailButton={{ text: 'ニュース一覧', href: '/news' }}
         >
           <News news={news} />
         </SectionContainer>
         <SectionContainer
+          id={'support'}
           title={'MOTTAI をサポートする'}
           detailButton={{ text: 'MOTTAI をサポートする', href: '/support' }}
         >
           <Support />
         </SectionContainer>
-        <Box id="contact">
-          <SectionContainer title={'お問い合わせ'}>
-            <Contact />
-          </SectionContainer>
-        </Box>
+        <SectionContainer id={'contact'} title={'お問い合わせ'}>
+          <Contact />
+        </SectionContainer>
       </ContentContainer>
     </Box>
   )

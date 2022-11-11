@@ -5,7 +5,11 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export default function TopicPath() {
   const router = useRouter()
-  const currentPath = router.asPath.replace(/\/$/, '').split('/').slice(1)
+  const currentPath = router.asPath
+    .replace(/\/$/, '')
+    .replace(/\#.*$/, '')
+    .split('/')
+    .slice(1)
   const topicPaths = []
   topicPaths.push(
     <Box as="span" key={'/'}>
