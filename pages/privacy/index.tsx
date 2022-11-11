@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
           <Box mb={8}>
             <TopicPath />
           </Box>
-          <SectionContainer title={'プライバシーポリシー'}>
+          <SectionContainer id={'privacy'} title={'プライバシーポリシー'}>
             <PrivacyPolicy />
           </SectionContainer>
         </ContentContainer>

@@ -12,10 +12,10 @@ export default function SupportPage() {
       <MainVisual title={'MOTTAIをサポートする'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'MOTTAIの想い'}>
+        <SectionContainer id={'request-support-message'} title={'MOTTAIの想い'}>
           <RequestSupportMessage />
         </SectionContainer>
-        <SectionContainer title={'MOTTAIをサポートする'}>
+        <SectionContainer id={'how-to-support'} title={'MOTTAIをサポートする'}>
           <HowToSupport />
         </SectionContainer>
       </ContentContainer>

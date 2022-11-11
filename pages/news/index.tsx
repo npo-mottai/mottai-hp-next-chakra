@@ -14,7 +14,7 @@ export default function NewsPage({ news }: { news: NewsSummary[] }) {
       <MainVisual title={'ニュース'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'ニュース一覧'}>
+        <SectionContainer id={'news'} title={'ニュース一覧'}>
           {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
           このようにタグ間に記述する */}
           <News news={news} />

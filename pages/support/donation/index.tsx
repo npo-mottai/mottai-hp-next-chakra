@@ -11,7 +11,7 @@ export default function DonationPage() {
       <MainVisual title={'寄付によるサポート'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'寄付によるサポート'}>
+        <SectionContainer id={'donation'} title={'寄付によるサポート'}>
           <Donation />
         </SectionContainer>
       </ContentContainer>
