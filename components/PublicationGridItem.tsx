@@ -1,8 +1,9 @@
-import { Box, Heading, Image, GridItem } from '@chakra-ui/react'
+import { Box, Heading, Image, GridItem, Link } from '@chakra-ui/react'
 
 type PublicationItem = {
   title: string
   imageUrl: string
+  href: string
 }
 
 export default function PublicationGridItem(publicationItem: PublicationItem) {
@@ -12,12 +13,14 @@ export default function PublicationGridItem(publicationItem: PublicationItem) {
         <Heading as="h3" mb="3" fontSize="md" fontWeight="normal" noOfLines={1}>
           {publicationItem.title}
         </Heading>
-        <Image
-          objectFit="cover"
-          rounded="lg"
-          src={publicationItem.imageUrl}
-          alt={publicationItem.title}
-        />
+        <Link href={publicationItem.href} color="teal.500" isExternal pb={4}>
+          <Image
+            objectFit="cover"
+            rounded="lg"
+            src={publicationItem.imageUrl}
+            alt={publicationItem.title}
+          />
+        </Link>
       </Box>
     </GridItem>
   )

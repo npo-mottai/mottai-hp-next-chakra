@@ -16,22 +16,22 @@ export default function AboutPage() {
       <MainVisual title={'私たちについて'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'MOTTAI とは'}>
+        <SectionContainer id={'about'} title={'MOTTAI とは'}>
           <About />
         </SectionContainer>
-        <SectionContainer title={'設立の背景'}>
+        <SectionContainer id={'background'} title={'設立の背景'}>
           <Background />
         </SectionContainer>
-        <SectionContainer title={'MOTTAI の由来'}>
+        <SectionContainer id={'origin'} title={'MOTTAI の由来'}>
           <Origin />
         </SectionContainer>
-        <SectionContainer title={'代表からのメッセージ'}>
+        <SectionContainer id={'message'} title={'代表からのメッセージ'}>
           <Message />
         </SectionContainer>
-        <SectionContainer title={'実績・メディア掲載'}>
+        <SectionContainer id={'publications'} title={'実績・メディア掲載'}>
           <Publications />
         </SectionContainer>
-        <SectionContainer title={'法人概要'}>
+        <SectionContainer id={'corporate'} title={'法人概要'}>
           <Corporate />
         </SectionContainer>
       </ContentContainer>
