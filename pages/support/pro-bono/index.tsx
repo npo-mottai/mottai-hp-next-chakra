@@ -11,7 +11,7 @@ export default function ProBonoPage() {
       <MainVisual title={'メンバーとしてサポート'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'メンバーとしてサポート'}>
+        <SectionContainer id={'pro-bono'} title={'メンバーとしてサポート'}>
           <ProBono />
         </SectionContainer>
       </ContentContainer>

@@ -12,10 +12,10 @@ export default function AboutPage() {
       <MainVisual title={'MOTTAI の活動'} />
       <ContentContainer>
         <TopicPath />
-        <SectionContainer title={'罠オーナー制度'}>
+        <SectionContainer id={'trap-owner'} title={'罠オーナー制度'}>
           <TrapOwner />
         </SectionContainer>
-        <SectionContainer title={'モッタイNight'}>
+        <SectionContainer id={'mottai-night'} title={'モッタイNight'}>
           <MottaiNight />
         </SectionContainer>
       </ContentContainer>
