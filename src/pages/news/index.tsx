@@ -39,10 +39,13 @@ export const getStaticProps = (): {
     }[]
   }
 } => {
-  const newsFiles = fs.readdirSync('news-articles').reverse()
+  const newsFiles = fs.readdirSync('src/news-articles').reverse()
   const news = newsFiles.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '')
-    const fileContent = fs.readFileSync(`news-articles/${fileName}`, 'utf-8')
+    const fileContent = fs.readFileSync(
+      `src/news-articles/${fileName}`,
+      'utf-8'
+    )
     const { data } = matter(fileContent)
     const createdAt = jaYYYYMMDD(data.createdAt)
     const title = data.title as string

@@ -17,6 +17,7 @@ import {
   CommonUnorderedList,
 } from '../../components/Common'
 import TopicPath from '../../components/TopicPath'
+import { jaYYYYMMDD } from '../../utils/date'
 
 export default function NewsArticle({
   newsArticle,
@@ -42,12 +43,13 @@ export default function NewsArticle({
 /**  */
 export function getStaticProps({ params }: { params: { slug: string } }) {
   const fileContent = fs.readFileSync(
-    `news-articles/${params.slug}.md`,
+    `src/news-articles/${params.slug}.md`,
     'utf-8'
   )
   const { data, content } = matter(fileContent)
   const slug = params.slug
-  const createdAt = data.createdAt as string
+  // const createdAt = data.createdAt as string
+  const createdAt = jaYYYYMMDD(data.createdAt)
   const title = data.title as string
   const imageUrl = data.imageUrl as string
   const description = data.description as string
@@ -61,7 +63,7 @@ export function getStaticProps({ params }: { params: { slug: string } }) {
 // TODO: コメントを書く
 /**  */
 export function getStaticPaths() {
-  const newsFiles = fs.readdirSync('news-articles')
+  const newsFiles = fs.readdirSync('src/news-articles')
   const paths = newsFiles.map((fileName) => ({
     params: {
       slug: fileName.replace(/\.md$/, ''),
