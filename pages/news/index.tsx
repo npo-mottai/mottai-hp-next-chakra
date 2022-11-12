@@ -1,12 +1,14 @@
 import fs from 'fs'
-import matter from 'gray-matter'
+
 import { Box } from '@chakra-ui/react'
+import matter from 'gray-matter'
+
+import ContentContainer from '../../components/ContentContainer'
 import MainVisual from '../../components/MainVisual'
+import TopicPath from '../../components/TopicPath'
+import News from '../../components/top-page/News'
 import SectionContainer from '../../components/top-page/SectionContainer'
 import { jaYYYYMMDD } from '../../utils/date'
-import News from '../../components/top-page/News'
-import ContentContainer from '../../components/ContentContainer'
-import TopicPath from '../../components/TopicPath'
 
 export default function NewsPage({ news }: { news: NewsSummary[] }) {
   return (

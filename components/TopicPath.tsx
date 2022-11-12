@@ -1,7 +1,8 @@
 import NextLink from 'next/link'
-import { Box, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { Box, Text } from '@chakra-ui/react'
 
 export default function TopicPath() {
   const router = useRouter()

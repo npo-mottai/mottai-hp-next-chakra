@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+
 import { CommonText } from '../Common'
 import PublicationGrid from '../PublicationGrid'
 

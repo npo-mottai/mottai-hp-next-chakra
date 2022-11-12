@@ -1,16 +1,17 @@
 import { ReactNode } from 'react'
+
 import {
   Box,
-  Container,
-  Stack,
-  SimpleGrid,
-  Text,
-  Link,
-  VisuallyHidden,
   chakra,
+  Container,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
   useColorModeValue,
+  VisuallyHidden,
 } from '@chakra-ui/react'
-import { FaTwitter, FaFacebook } from 'react-icons/fa'
+import { FaFacebook, FaTwitter } from 'react-icons/fa'
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (

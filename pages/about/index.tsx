@@ -1,14 +1,15 @@
 import { Box } from '@chakra-ui/react'
-import MainVisual from '../../components/MainVisual'
-import SectionContainer from '../../components/top-page/SectionContainer'
+
 import ContentContainer from '../../components/ContentContainer'
+import MainVisual from '../../components/MainVisual'
+import TopicPath from '../../components/TopicPath'
 import About from '../../components/about-page/About'
 import Background from '../../components/about-page/Background'
-import Origin from '../../components/about-page/Origin'
-import Message from '../../components/about-page/Message'
-import Publications from '../../components/about-page/Publications'
 import Corporate from '../../components/about-page/Corporate'
-import TopicPath from '../../components/TopicPath'
+import Message from '../../components/about-page/Message'
+import Origin from '../../components/about-page/Origin'
+import Publications from '../../components/about-page/Publications'
+import SectionContainer from '../../components/top-page/SectionContainer'
 
 export default function AboutPage() {
   return (

@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Image, Grid, GridItem } from '@chakra-ui/react'
+import { Box, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
+
 import { CommonText } from '../Common'
 
 export default function Activity() {

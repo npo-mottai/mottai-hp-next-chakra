@@ -1,9 +1,10 @@
 import { Box } from '@chakra-ui/react'
-import MainVisual from '../../../components/MainVisual'
-import SectionContainer from '../../../components/top-page/SectionContainer'
+
 import ContentContainer from '../../../components/ContentContainer'
-import ProBono from '../../../components/support-page/ProBono'
+import MainVisual from '../../../components/MainVisual'
 import TopicPath from '../../../components/TopicPath'
+import ProBono from '../../../components/support-page/ProBono'
+import SectionContainer from '../../../components/top-page/SectionContainer'
 
 export default function ProBonoPage() {
   return (

@@ -1,4 +1,5 @@
 import { Box, Grid } from '@chakra-ui/react'
+
 import { CommonText } from '../Common'
 import NewsCardGridItem from '../NewsCardGridItem'
 

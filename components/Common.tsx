@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
+
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import {
-  Box,
   Heading,
   Image,
   Link,
@@ -9,7 +10,6 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react'
-import { ReactNode } from 'react'
 
 type Props = {
   text: string

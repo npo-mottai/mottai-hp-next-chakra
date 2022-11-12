@@ -1,4 +1,5 @@
 import { Grid } from '@chakra-ui/react'
+
 import PublicationGridItem from './PublicationGridItem'
 
 const publicationItems = [

@@ -1,8 +1,9 @@
 import { Box } from '@chakra-ui/react'
+
 import ContentContainer from '../../components/ContentContainer'
+import TopicPath from '../../components/TopicPath'
 import PrivacyPolicy from '../../components/privacy-policy-page/PrivacyPolicy'
 import SectionContainer from '../../components/top-page/SectionContainer'
-import TopicPath from '../../components/TopicPath'
 
 export default function PrivacyPolicyPage() {
   return (

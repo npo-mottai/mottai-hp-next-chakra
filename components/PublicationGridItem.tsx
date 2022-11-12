@@ -1,4 +1,4 @@
-import { Box, Heading, Image, GridItem, Link } from '@chakra-ui/react'
+import { Box, GridItem, Heading, Image, Link } from '@chakra-ui/react'
 
 type PublicationItem = {
   title: string

@@ -7,6 +7,7 @@ import {
   Td,
   Tr,
 } from '@chakra-ui/react'
+
 import { CommonExternalLinkText, CommonText } from '../Common'
 import ContactForm from '../ContactForm'
 

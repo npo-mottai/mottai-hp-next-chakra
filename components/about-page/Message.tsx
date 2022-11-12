@@ -3,11 +3,11 @@ import {
   Box,
   Center,
   Circle,
-  Heading,
   Image,
   Link,
   Text,
 } from '@chakra-ui/react'
+
 import { CommonText } from '../../components/Common'
 
 export default function Message() {

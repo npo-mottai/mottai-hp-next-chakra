@@ -1,4 +1,5 @@
 import { Box, Button, Center } from '@chakra-ui/react'
+
 import { CommonText } from '../Common'
 
 export const HowToSupport = () => {

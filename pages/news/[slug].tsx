@@ -1,8 +1,10 @@
-import { Box, Divider, Heading, Text } from '@chakra-ui/react'
 import fs from 'fs'
+
+import { Box, Divider, Heading, Text } from '@chakra-ui/react'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+
 import {
   CommonExternalLinkText,
   CommonH2,

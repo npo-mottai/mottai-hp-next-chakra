@@ -1,5 +1,7 @@
-import { Box, Center, Heading } from '@chakra-ui/react'
 import { ReactNode } from 'react'
+
+import { Box, Center, Heading } from '@chakra-ui/react'
+
 import PrimaryLinkButton from '../buttons/PrimaryLinkButton'
 
 type Props = {

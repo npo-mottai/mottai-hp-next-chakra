@@ -1,14 +1,12 @@
 import {
   Box,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
-  Th,
-  Thead,
   Tr,
 } from '@chakra-ui/react'
+
 import { CommonText } from '../../components/Common'
 
 export default function Corporate() {

@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+
 import { CommonText } from '../../components/Common'
 
 export default function About() {

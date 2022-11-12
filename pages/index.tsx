@@ -1,16 +1,18 @@
 import fs from 'fs'
-import matter from 'gray-matter'
+
 import { Box } from '@chakra-ui/react'
+import matter from 'gray-matter'
+
+import ContentContainer from '../components/ContentContainer'
 import MainVisual from '../components/MainVisual'
 import About from '../components/top-page/About'
 import Activity from '../components/top-page/Activity'
-import Publication from '../components/top-page/Publication'
-import News from '../components/top-page/News'
-import Support from '../components/top-page/Support'
 import Contact from '../components/top-page/Contact'
+import News from '../components/top-page/News'
+import Publication from '../components/top-page/Publication'
 import SectionContainer from '../components/top-page/SectionContainer'
+import Support from '../components/top-page/Support'
 import { jaYYYYMMDD } from '../utils/date'
-import ContentContainer from '../components/ContentContainer'
 
 export default function TopPage({ news }: { news: NewsSummary[] }) {
   return (

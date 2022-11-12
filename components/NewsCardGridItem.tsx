@@ -1,4 +1,5 @@
-import { Box, Text, Image, GridItem } from '@chakra-ui/react'
+import { Box, GridItem, Image, Text } from '@chakra-ui/react'
+
 import SecondaryLinkButton from './buttons/SecondaryLinkButton'
 
 export default function NewsGridItem(news: NewsSummary) {
