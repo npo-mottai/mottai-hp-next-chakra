@@ -6,7 +6,7 @@ import TopicPath from '../../components/TopicPath'
 import TrapOwner from '../../components/activities-page/TrapOwner'
 import SectionContainer from '../../components/top-page/SectionContainer'
 
-export default function AboutPage() {
+export default function Activities2Page() {
   return (
     <Box>
       <MainVisual title={'MOTTAI の活動'} />
