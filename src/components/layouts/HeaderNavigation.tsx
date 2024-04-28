@@ -269,8 +269,12 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: '活動',
+    label: 'モッタイNight',
     href: '/activities',
+  },
+  {
+    label: '罠オーナー制度',
+    href: '/activities2',
   },
   {
     label: 'ニュース',
