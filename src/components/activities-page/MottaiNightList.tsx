@@ -1,5 +1,6 @@
 import { Box, Grid } from '@chakra-ui/react'
 
+import { CommonText } from '../../components/Common'
 import MottaiNightCardGridItem from './MottaiNightCardGridItem'
 
 export default function MottaiNightList({ mottaiNightLinkArr }: { mottaiNightLinkArr: MottaiNightLinkObj[] }) {
@@ -23,7 +24,7 @@ function MottaiNightGrid({ mottaiNightLinkArr }: { mottaiNightLinkArr: MottaiNig
       templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']}
       gap={[6]}
     >
-      { MottaiNighItem}
+      { MottaiNighItem.length > 0 ? MottaiNighItem : <CommonText text="開催予定はありません" /> }
     </Grid>
   )
 }
