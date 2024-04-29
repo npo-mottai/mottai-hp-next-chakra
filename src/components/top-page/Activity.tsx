@@ -1,7 +1,6 @@
-import { Box, Grid, GridItem, Heading, Image, Text, Center } from '@chakra-ui/react'
+import { Box, Center, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
 
 import { CommonText } from '../Common'
-
 import PrimaryLinkButton from '../buttons/PrimaryLinkButton'
 
 export default function Activity() {
