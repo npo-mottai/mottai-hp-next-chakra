@@ -17,7 +17,7 @@ export const getNotionMottaiNightData = async () => {
 
     // sv-SEロケールはYYYY-MM-DD形式の日付文字列を戻す
     const today = new Date().toLocaleDateString('sv-SE')
-    
+
     for (let data_obj of res['results']) {
       // データベース上でdate(開催日)が空欄の場合は表示しない
       if (data_obj['properties' as keyof object]['date']['date'] === null) {
@@ -34,7 +34,7 @@ export const getNotionMottaiNightData = async () => {
         date: data_obj['properties' as keyof object]['date']['date']['start'],
         url: data_obj['properties' as keyof object]['url']['rich_text'][0]['text']['content'],
         description: data_obj['properties' as keyof object]['description']['rich_text'][0]['text']['content'],
-        thumbnail: 
+        thumbnail:
         (data_obj['properties' as keyof object]['thumbnail']['files'] as string[]).length > 0 ? data_obj['properties' as keyof object]['thumbnail']['files'][0]['file']['url'] : '',
       })
     }
@@ -53,4 +53,3 @@ export const getNotionMottaiNightData = async () => {
     return []
   }
 }
-

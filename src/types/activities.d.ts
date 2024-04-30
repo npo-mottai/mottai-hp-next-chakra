@@ -7,4 +7,3 @@ type MottaiNightLinkObj = {
   description: string;
   url: string;
 }
-  
