@@ -31,10 +31,6 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
         <SectionContainer
           id={'activity'}
           title={'MOTTAI の活動'}
-          detailButton={{
-            text: 'MOTTAI の活動をもっと見る',
-            href: '/activities',
-          }}
         >
           <Activity />
         </SectionContainer>

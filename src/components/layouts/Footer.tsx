@@ -64,7 +64,8 @@ export default function Footer() {
           <Stack align={'flex-start'}>
             <ListHeader>NPO法人MOTTAI</ListHeader>
             <Link href={'/about'}>私たちについて</Link>
-            <Link href={'/activities'}>MOTTAI の活動</Link>
+            <Link href={'/mottai-night'}>モッタイNight</Link>
+            <Link href={'/trap-owner'}>罠オーナー制度</Link>
             <Link href={'/news'}>ニュース</Link>
             <Link href={'/support'}>サポートする</Link>
             <Link href={'/#contact'}>お問い合わせ</Link>
