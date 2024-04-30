@@ -1,6 +1,6 @@
 import { Box, Grid } from '@chakra-ui/react'
 
-import { CommonText } from '../../components/Common'
+import { CommonText } from '../Common'
 import MottaiNightCardGridItem from './MottaiNightCardGridItem'
 
 export default function MottaiNightList({ mottaiNightLinkArr }: { mottaiNightLinkArr: MottaiNightLinkObj[] }) {

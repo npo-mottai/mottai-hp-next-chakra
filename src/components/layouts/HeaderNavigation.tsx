@@ -273,11 +273,11 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: 'モッタイNight',
-        href: '/activities',
+        href: '/mottai-night',
       },
       {
         label: '罠オーナー制度',
-        href: '/activities2',
+        href: '/trap-owner',
       },
     ],
   },

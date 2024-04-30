@@ -3,16 +3,16 @@ import { Box } from '@chakra-ui/react'
 import ContentContainer from '../../components/ContentContainer'
 import MainVisual from '../../components/MainVisual'
 import TopicPath from '../../components/TopicPath'
-import MottaiNight from '../../components/activities-page/MottaiNight'
-import MottaiNightList from '../../components/activities-page/MottaiNightList'
+import MottaiNight from '../../components/mottai-night-page/MottaiNight'
+import MottaiNightList from '../../components/mottai-night-page/MottaiNightList'
 import SectionContainer from '../../components/top-page/SectionContainer'
 import { getNotionMottaiNightData } from '../../utils/notion'
 
 import type { GetServerSideProps } from 'next'
 
-export default function ActivitiesPage(props: {mottaiNightLinkArr: MottaiNightLinkObj[]}) {
+export default function MottaiNightPage(props: {mottaiNightLinkArr: MottaiNightLinkObj[]}) {
   return (
-    <> 
+    <>
       <Box>
         <MainVisual title={'MOTTAI の活動'} />
         <ContentContainer>

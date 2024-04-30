@@ -2,7 +2,7 @@ import { Box, GridItem, Image, Text } from '@chakra-ui/react'
 
 export default function MottaiNightCardGridItem(mottaiNightLinkObj: MottaiNightLinkObj) {
   return (
-    <a href={mottaiNightLinkObj.url} target='_blank' rel='noopener noreferrer' key={mottaiNightLinkObj.title}> 
+    <a href={mottaiNightLinkObj.url} target="_blank" rel="noopener noreferrer" key={mottaiNightLinkObj.title}>
       <GridItem>
         <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
           <Image src={mottaiNightLinkObj.thumbnail} alt={mottaiNightLinkObj.title} />

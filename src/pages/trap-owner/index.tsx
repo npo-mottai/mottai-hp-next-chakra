@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/react'
 import ContentContainer from '../../components/ContentContainer'
 import MainVisual from '../../components/MainVisual'
 import TopicPath from '../../components/TopicPath'
-import TrapOwner from '../../components/activities-page/TrapOwner'
 import SectionContainer from '../../components/top-page/SectionContainer'
+import TrapOwner from '../../components/trap-owner-page/TrapOwner'
 
-export default function Activities2Page() {
+export default function TrapOwnerPage() {
   return (
     <Box>
       <MainVisual title={'MOTTAI の活動'} />

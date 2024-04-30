@@ -63,11 +63,11 @@ const pathLabels = [
     label: '私たちについて',
   },
   {
-    path: 'activities',
+    path: 'mottai-night',
     label: 'モッタイNight',
   },
   {
-    path: 'activities2',
+    path: 'trap-owner',
     label: '罠オーナー制度',
   },
   {
