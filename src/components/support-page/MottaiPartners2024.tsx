@@ -31,7 +31,7 @@ const mottaiPartners: { name: string; url: string }[] = [
     name: '検索順位の奴隷',
     url: 'https://search-engine.capitalism-slaves.com',
   },
-  { name: 'natsumi_oomura', url: 'https://www.instagram.com/natsumi_omura/' },
+  { name: 'natsumi_omura', url: 'https://www.instagram.com/natsumi_omura/' },
   { name: 'YOOFIN Ltd.', url: 'https://yoofin.net' },
   {
     name: 'かわまた歯科　第2診療室',
