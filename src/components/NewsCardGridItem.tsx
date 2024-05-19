@@ -6,10 +6,10 @@ export default function NewsGridItem(news: NewsSummary) {
   return (
     <GridItem key={news.title}>
       <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
-        <Image src={news.imageUrl} alt={news.title} />
+        <Image src={news.thumbnail} alt={news.title} />
         <Box p="4">
           <Text mb="2" noOfLines={1} fontSize={'xs'}>
-            {news.createdAt}
+            {news.date}
           </Text>
           <Text
             mb="2"
@@ -25,7 +25,7 @@ export default function NewsGridItem(news: NewsSummary) {
           </Text>
           <SecondaryLinkButton
             text={'記事を読む'}
-            href={`/news/${news.slug}`}
+            href={`/news/${news.url}`}
           />
         </Box>
       </Box>

@@ -1,8 +1,5 @@
-import fs from 'fs'
-
 import { Box, Divider, Heading, Text } from '@chakra-ui/react'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
 import {
@@ -17,18 +14,16 @@ import {
   CommonUnorderedList,
 } from '../../components/Common'
 import TopicPath from '../../components/TopicPath'
-import { jaYYYYMMDD } from '../../utils/date'
+import { getNotionNewsArr, getNotionNewsArticle,  } from '../../utils/notion'
 
-export default function NewsArticle({
-  newsArticle,
-}: {
-  newsArticle: NewsArticle
-}) {
+import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+
+export default function NewsArticle({ newsArticle }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Box maxW={'48em'} mx={'auto'} my={12} py={0} px={'2rem'}>
       <TopicPath />
       <Heading fontSize={'md'}>{newsArticle.summary.title}</Heading>
-      <Text>投稿日：{newsArticle.summary.createdAt}</Text>
+      <Text>投稿日：{newsArticle.summary.date}</Text>
       <ReactMarkdown
         components={ChakraUIRenderer(customChakraUIRenderTheme)}
         skipHtml
@@ -41,39 +36,31 @@ export default function NewsArticle({
 
 // TODO: コメントを書く
 /**  */
-export function getStaticProps({ params }: { params: { slug: string } }) {
-  const fileContent = fs.readFileSync(
-    `src/news-articles/${params.slug}.md`,
-    'utf-8'
-  )
-  const { data, content } = matter(fileContent)
-  const slug = params.slug
-  // const createdAt = data.createdAt as string
-  const createdAt = jaYYYYMMDD(data.createdAt)
-  const title = data.title as string
-  const imageUrl = data.imageUrl as string
-  const description = data.description as string
-  const newsArticle: NewsArticle = {
-    summary: { slug, createdAt, title, imageUrl, description },
-    content,
+export const getStaticProps: GetStaticProps<{
+  newsArticle: NewsArticle
+}> = (async ({ params }: any) => {
+  let newsArticle = {} as NewsArticle
+  if (params !== undefined) {
+    newsArticle = await getNotionNewsArticle(params.slug)
   }
+
   return { props: { newsArticle } }
-}
+})
 
 // TODO: コメントを書く
 /**  */
-export function getStaticPaths() {
-  const newsFiles = fs.readdirSync('src/news-articles')
-  const paths = newsFiles.map((fileName) => ({
-    params: {
-      slug: fileName.replace(/\.md$/, ''),
-    },
-  }))
-  return {
-    paths,
-    fallback: false,
-  }
-}
+export const getStaticPaths:GetStaticPaths = (async () => {
+    const news = await getNotionNewsArr()
+    const paths = news.map((newsObj) => ({
+      params: {
+        slug: newsObj.url,
+      },
+    }))
+    return {
+      paths,
+      fallback: false,
+    }
+})
 
 /** */
 const customChakraUIRenderTheme = {

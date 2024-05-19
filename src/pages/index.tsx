@@ -1,7 +1,4 @@
-import fs from 'fs'
-
 import { Box } from '@chakra-ui/react'
-import matter from 'gray-matter'
 
 import ContentContainer from '../components/ContentContainer'
 import MainVisual from '../components/MainVisual'
@@ -12,9 +9,11 @@ import News from '../components/top-page/News'
 import Publication from '../components/top-page/Publication'
 import SectionContainer from '../components/top-page/SectionContainer'
 import Support from '../components/top-page/Support'
-import { jaYYYYMMDD } from '../utils/date'
+import { getNotionNewsArr } from '../utils/notion'
 
-export default function TopPage({ news }: { news: NewsSummary[] }) {
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+
+export default function TopPage({ news }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Box>
       <MainVisual title={'当たり前の裏側にアクセスしやすい社会を創る'} />
@@ -68,36 +67,14 @@ export default function TopPage({ news }: { news: NewsSummary[] }) {
 
 // TODO: コメントを追加する
 /** */
-export const getStaticProps = (): {
-  props: {
-    news: {
-      slug: string
-      createdAt: string
-      title: string
-      imageUrl: string
-      description: string
-    }[]
-  }
-} => {
-  const newsFiles = fs
-    .readdirSync('src/news-articles')
-    .reverse()
-    .slice(0, TOP_PAGE_NEWS_COUNT)
-  const news = newsFiles.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '')
-    const fileContent = fs.readFileSync(
-      `src/news-articles/${fileName}`,
-      'utf-8'
-    )
-    const { data } = matter(fileContent)
-    const createdAt = jaYYYYMMDD(data.createdAt)
-    const title = data.title as string
-    const imageUrl = data.imageUrl as string
-    const description = data.description as string
-    return { slug, createdAt, title, imageUrl, description }
-  })
+export const getStaticProps: GetStaticProps<{
+  news: NewsSummary[]
+}> = (async () => {
+  let news = await getNotionNewsArr()
+  news = news.slice(0, TOP_PAGE_NEWS_COUNT)
+
   return { props: { news } }
-}
+})
 
 /** トップページに表示するニュースの件数 */
 const TOP_PAGE_NEWS_COUNT = 4

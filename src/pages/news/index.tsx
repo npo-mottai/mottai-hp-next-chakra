@@ -1,16 +1,15 @@
-import fs from 'fs'
-
 import { Box } from '@chakra-ui/react'
-import matter from 'gray-matter'
 
 import ContentContainer from '../../components/ContentContainer'
 import MainVisual from '../../components/MainVisual'
 import TopicPath from '../../components/TopicPath'
 import News from '../../components/top-page/News'
 import SectionContainer from '../../components/top-page/SectionContainer'
-import { jaYYYYMMDD } from '../../utils/date'
+import { getNotionNewsArr } from '../../utils/notion'
 
-export default function NewsPage({ news }: { news: NewsSummary[] }) {
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+
+export default function NewsPage({ news }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Box>
       <MainVisual title={'ニュース'} />
@@ -28,30 +27,9 @@ export default function NewsPage({ news }: { news: NewsSummary[] }) {
 
 // TODO: コメントを追加する
 /** */
-export const getStaticProps = (): {
-  props: {
-    news: {
-      slug: string
-      createdAt: string
-      title: string
-      imageUrl: string
-      description: string
-    }[]
-  }
-} => {
-  const newsFiles = fs.readdirSync('src/news-articles').reverse()
-  const news = newsFiles.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '')
-    const fileContent = fs.readFileSync(
-      `src/news-articles/${fileName}`,
-      'utf-8'
-    )
-    const { data } = matter(fileContent)
-    const createdAt = jaYYYYMMDD(data.createdAt)
-    const title = data.title as string
-    const imageUrl = data.imageUrl as string
-    const description = data.description as string
-    return { slug, createdAt, title, imageUrl, description }
-  })
+export const getStaticProps: GetStaticProps<{
+  news: NewsSummary[]
+}> = (async () => {
+  const news = await getNotionNewsArr()
   return { props: { news } }
-}
+})
