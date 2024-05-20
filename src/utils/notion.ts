@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
 
 import { jaYYYYMMDD } from '../utils/date'
+import { checkExistingR2ImageKey, uploadImageToR2 } from './r2'
 
 import type { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints.d'
 
@@ -23,23 +24,27 @@ export const getNotionMottaiNightData = async () => {
     const today = new Date().toLocaleDateString('sv-SE')
     const mottaiNightLinkArr: NewsSummary[] = []
 
-    for(let noitonRowObj of notionRowArr) {
+    for(let notionRowObj of notionRowArr) {
       // データベース上でdate(開催日)が空欄の場合は表示しない。
-      if (noitonRowObj.date === null) {
+      if (notionRowObj.date === null) {
         continue
       }
 
       // 開催日が過去のものは表示しない。
-      if (noitonRowObj.date < today) {
+      if (notionRowObj.date < today) {
         continue
       }
 
+      const notionImageKey = await extractImageKey(notionRowObj.thumbnail),
+        mottaiNightLink = notionRowObj.url.split('/').slice(-1)[0],
+        r2ImageUrl = await swapNotionImageForR2Image(notionRowObj.thumbnail, `mottai-night/${mottaiNightLink}/${notionImageKey}`)
+
       mottaiNightLinkArr.push({
-        title: noitonRowObj.title,
-        date: jaYYYYMMDD(noitonRowObj.date),
-        url: noitonRowObj.url,
-        description: noitonRowObj.description,
-        thumbnail: noitonRowObj. thumbnail // TODO R2からの画像取得。
+        title: notionRowObj.title,
+        date: jaYYYYMMDD(notionRowObj.date),
+        url: notionRowObj.url,
+        description: notionRowObj.description,
+        thumbnail: r2ImageUrl
       })
     }
 
@@ -75,12 +80,15 @@ export const getNotionNewsArr = async () => {
       continue
     }
 
+      const notionImageKey = await extractImageKey(notionRowObj.thumbnail),
+        r2ImageUrl = await swapNotionImageForR2Image(notionRowObj.thumbnail, `news/${notionRowObj.url}/${notionImageKey}`)
+
     newsArr.push({
       title: notionRowObj.title,
       date: jaYYYYMMDD(notionRowObj.date),
       url: notionRowObj.url,
       description: notionRowObj.description,
-      thumbnail: notionRowObj.thumbnail // TODO R2からの画像取得。
+      thumbnail: r2ImageUrl
     })
   }
 
@@ -111,16 +119,19 @@ export const getNotionNewsArticle = async (url:string) => {
     }
   })
 
-  const markdown = await convertNotion2Markdown(res['results'][0].id)
+  const markdown = await convertNotion2Markdown(res['results'][0].id, url)
 
   const notionPropertyObj =  convertNotionResponse(res)
+
+  const notionImageKey = await extractImageKey(notionPropertyObj[0].thumbnail),
+    r2ImageUrl = await swapNotionImageForR2Image(notionPropertyObj[0].thumbnail, `news/${url}/${notionImageKey}`)
 
   const newsArticle: NewsArticle = {
     summary: {
       url: notionPropertyObj[0].url,
       date: jaYYYYMMDD(notionPropertyObj[0].date),
       title: notionPropertyObj[0].title,
-      thumbnail: notionPropertyObj[0].thumbnail, // TODO R2からの画像取得。
+      thumbnail: r2ImageUrl,
       description: notionPropertyObj[0].description
     },
     content: markdown
@@ -131,9 +142,10 @@ export const getNotionNewsArticle = async (url:string) => {
 
 /**
  * @param notionPageId NotionのページIDの文字列。
+ * @param url Notionのデータベースで定義されたurlカラムに記入された任意の文字列。
  * @returns Notionページのマークダウンの文字列。
  */
-export const convertNotion2Markdown = async (notionPageId:string) => {
+const convertNotion2Markdown = async (notionPageId:string, url: string) => {
   const n2m = new NotionToMarkdown({
     notionClient: NOTION,
     config: {
@@ -146,7 +158,18 @@ export const convertNotion2Markdown = async (notionPageId:string) => {
   // 空白のブロックを入れた際に改行として表示するために変換
   for (let block of mdBlock) {
     if (block['type'] === 'paragraph' && block['parent'] === '') {
-      block['parent'] = '<br />'
+      block['parent'] = '&nbsp;'
+    }
+
+    if (block['type'] === 'image') {
+      const notionImageUrl = await extractImageUrlFromNotionPageBlock(block.parent),
+        notionImageKey = await extractImageKey(block.parent)
+
+        if (notionImageUrl === null || notionImageKey === null) continue
+
+      const r2ImageUrl = await swapNotionImageForR2Image(notionImageUrl, `news/${url}/${notionImageKey}`)
+
+      block['parent'] = block.parent.replace(notionImageKey, r2ImageUrl)
     }
   }
 
@@ -159,7 +182,7 @@ export const convertNotion2Markdown = async (notionPageId:string) => {
  * @param databaseResponse NotionAPIレスポンスのオブジェクト。
  * @returns NotionAPIレスポンスを変換したオブジェクト配列。
  */
-export const convertNotionResponse = (databaseResponse:QueryDatabaseResponse) => {
+const convertNotionResponse = (databaseResponse:QueryDatabaseResponse) => {
   const notionRowArr = []
 
   for (let responseObj of databaseResponse.results) {
@@ -177,7 +200,7 @@ export const convertNotionResponse = (databaseResponse:QueryDatabaseResponse) =>
  * @param value Notionのプロパティの値。(TODO anyやめる)
  * @returns Notionのプロパティの値を抽出した文字列。
  */
-export const extractNotionProperty = (value: any) => {
+const extractNotionProperty = (value: any) => {
   switch(value.type){
     case 'rich_text':
       if(value['rich_text'].length === 0) return ''
@@ -194,4 +217,42 @@ export const extractNotionProperty = (value: any) => {
     default:
       return ''
   }
+}
+
+/**
+ * @param notionImageUrl Notionの有効期限ありの画像URL。
+ * @param notionImageKey 画像のキー R2にアップロードする際のバケット内一意のファイル名。
+ * @returns R2にアップロードされた画像のURL。
+ */
+const swapNotionImageForR2Image = async (notionImageUrl: string, notionImageKey:string) => {
+  const decodedNotionImageKey = decodeURI(notionImageKey)
+
+  const isExisting = await checkExistingR2ImageKey('notion-image', decodedNotionImageKey)
+  if(!isExisting){
+    await uploadImageToR2('notion-image', notionImageUrl, decodedNotionImageKey)
+  }
+
+  return `${process.env.R2_IMAGE_WORKER_URL}/${decodedNotionImageKey}`
+}
+
+/**
+ * @param notionImageUrl Notionのテーブルにアップロードした画像のURL。'https://xxx/xxx/xxx/ファイル名?...'の形式。
+ * @returns 画像のファイル名の文字列。
+ */
+const extractImageKey = async (notionImageUrl: string) => {
+  const imageKeyWithUrlParam = notionImageUrl.split('/').slice(-1)[0]
+
+  return imageKeyWithUrlParam.substring(0, imageKeyWithUrlParam.indexOf('?'))
+}
+
+/**
+ * @param notionImageUrl Notionページ内のブロックのtypeがimageの要素の値'![ファイル名](https://xxx/xxx/xxx/ファイル名?...)'の形式。
+ * @returns　パーレンで囲まれた画像のURL。
+ */
+const extractImageUrlFromNotionPageBlock = async (notionImageUrl: string) => {
+  const notionImageKeyMatches = notionImageUrl.match(/\((.*?)\)/)
+
+  if (notionImageKeyMatches === null) return null
+
+  return notionImageKeyMatches[1]
 }

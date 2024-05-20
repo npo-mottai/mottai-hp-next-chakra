@@ -1,0 +1,7 @@
+name = "r2-image-worker"
+main = "src/index.ts"
+compatibility_date = "2024-05-19"
+workers_dev = true
+[[r2_buckets]]
+binding = "MY_BUCKET"
+bucket_name = "notion-image"
