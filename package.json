@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export -o out",
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,6 @@
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.15",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
@@ -23,10 +22,12 @@
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.577.0",
     "@chakra-ui/icons": "^2.0.11",
     "@chakra-ui/react": "^2.3.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@notionhq/client": "^2.2.15",
     "@types/markdown-it": "^12.2.3",
     "chakra-ui-markdown-renderer": "^4.1.0",
     "eslint": "8.26.0",
@@ -34,9 +35,10 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "framer-motion": "^7.6.4",
-    "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.1",
     "next-sitemap": "^3.1.30",
-    "react-markdown": "^8.0.3"
+    "notion-to-md": "^3.1.1",
+    "react-markdown": "^8.0.3",
+    "wrangler": "^3.57.0"
   }
 }

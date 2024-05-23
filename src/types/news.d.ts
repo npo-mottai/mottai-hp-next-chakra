@@ -1,10 +1,10 @@
 // TODO: コメントを書く
 /**  */
 type NewsSummary = {
-  slug: string
-  createdAt: string
+  url: string
+  date: string
   title: string
-  imageUrl: string
+  thumbnail: string
   description: string
 }
 

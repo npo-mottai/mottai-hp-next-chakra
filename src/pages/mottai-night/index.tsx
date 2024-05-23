@@ -8,9 +8,9 @@ import MottaiNightList from '../../components/mottai-night-page/MottaiNightList'
 import SectionContainer from '../../components/top-page/SectionContainer'
 import { getNotionMottaiNightData } from '../../utils/notion'
 
-import type { GetServerSideProps } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-export default function MottaiNightPage(props: {mottaiNightLinkArr: MottaiNightLinkObj[]}) {
+export default function MottaiNightPage({ mottaiNightLinkArr }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Box>
@@ -23,7 +23,7 @@ export default function MottaiNightPage(props: {mottaiNightLinkArr: MottaiNightL
           <SectionContainer id={'news'} title={'開催予定'}>
             {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
             このようにタグ間に記述する */}
-            <MottaiNightList mottaiNightLinkArr={props.mottaiNightLinkArr} />
+            <MottaiNightList mottaiNightLinkArr={mottaiNightLinkArr} />
           </SectionContainer>
         </ContentContainer>
       </Box>
@@ -31,7 +31,12 @@ export default function MottaiNightPage(props: {mottaiNightLinkArr: MottaiNightL
   )
 }
 
-export const getServerSideProps: GetServerSideProps = (async (context) => {
-  const mottaiNightLinkArr:MottaiNightLinkObj[] = await getNotionMottaiNightData()
-  return { props: {mottaiNightLinkArr: mottaiNightLinkArr} }
+// TODO: コメントを追加する
+/** */
+export const getStaticProps: GetStaticProps<{
+  mottaiNightLinkArr: MottaiNightLinkObj[]
+}> = (async () => {
+  let mottaiNightLinkArr = await getNotionMottaiNightData()
+
+  return { props: { mottaiNightLinkArr } }
 })
