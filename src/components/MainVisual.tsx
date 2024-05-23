@@ -16,14 +16,23 @@ export default function MainVisual(props: Props) {
     >
       <Box>
         <Center>
-          <Heading as="h1" size={['lg', 'xl', '2xl', '3xl']} color="white">
+          <Text
+            as='b'
+            sx={{ fontFamily: "Georgia, serif" }}
+            fontSize={['2xl', '3xl', '5xl', '6xl']}
+            color="white">
             NPO 法人 MOTTAI
-          </Heading>
+          </Text>
         </Center>
         <Center>
-          <Text as="b" fontSize={['md', 'xl', '2xl', '3xl']} color="white">
+          <Heading
+            as="h1"
+            sx={{ fontFamily: "system-ui, sans-serif" }}
+            fontSize={['md', 'xl', '2xl', '3xl']}
+            color="white"
+          >
             {props.title}
-          </Text>
+          </Heading>
         </Center>
       </Box>
     </Box>
