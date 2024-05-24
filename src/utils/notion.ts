@@ -157,11 +157,10 @@ const convertNotion2Markdown = async (notionPageId:string, url: string) => {
 
   // 空白のブロックを入れた際に改行として表示するために変換
   for (let block of mdBlock) {
-    if (block['type'] === 'paragraph' && block['parent'] === '') {
-      block['parent'] = '&nbsp;'
+    if (block.type === 'paragraph' && block.parent === '') {
+      block.parent = '&nbsp;'
     }
-
-    if (block['type'] === 'image') {
+    if (block.type === 'image') {
       const notionImageUrl = await extractImageUrlFromNotionPageBlock(block.parent),
         notionImageKey = await extractImageKey(block.parent)
 
@@ -169,7 +168,7 @@ const convertNotion2Markdown = async (notionPageId:string, url: string) => {
 
       const r2ImageUrl = await swapNotionImageForR2Image(notionImageUrl, `news/${url}/${notionImageKey}`)
 
-      block['parent'] = block.parent.replace(notionImageKey, r2ImageUrl)
+      block.parent = `![${notionImageKey}](${r2ImageUrl})` // 画像の埋め込みのマークダウン記法
     }
   }
 
