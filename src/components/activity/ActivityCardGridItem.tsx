@@ -1,14 +1,14 @@
 import { Box, GridItem, Image, Text } from '@chakra-ui/react'
 
-export default function MottaiNightCardGridItem(mottaiNightLinkObj: MottaiNightLinkObj) {
+export default function ActivityCardGridItem(activityLinkObj: activityLinkObj) {
   return (
-    <a href={mottaiNightLinkObj.url} target="_blank" rel="noopener noreferrer" key={mottaiNightLinkObj.title}>
+    <a href={activityLinkObj.url} target="_blank" rel="noopener noreferrer" key={activityLinkObj.title}>
       <GridItem>
         <Box width="full" borderWidth="1px" rounded="lg" overflow="hidden">
-          <Image src={mottaiNightLinkObj.thumbnail} alt={mottaiNightLinkObj.title} />
+          <Image src={activityLinkObj.thumbnail} alt={activityLinkObj.title} />
           <Box p="4">
             <Text mb="2" noOfLines={1} fontSize={'xs'}>
-              {mottaiNightLinkObj.date}
+              {activityLinkObj.date}
             </Text>
             <Text
               mb="2"
@@ -17,10 +17,10 @@ export default function MottaiNightCardGridItem(mottaiNightLinkObj: MottaiNightL
               as="h3"
               noOfLines={1}
             >
-              {mottaiNightLinkObj.title}
+              {activityLinkObj.title}
             </Text>
             <Text noOfLines={4} mb="2" fontSize={'sm'}>
-              {mottaiNightLinkObj.description}
+              {activityLinkObj.description}
             </Text>
           </Box>
         </Box>

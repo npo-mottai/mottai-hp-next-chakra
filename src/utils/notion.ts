@@ -7,22 +7,23 @@ import { checkExistingR2ImageKey, uploadImageToR2 } from './r2'
 import type { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints.d'
 
 const NOTION = new Client({ auth: process.env.NOTION_API_KEY })
+const envVariableNameObj = {'mottai-night': 'NOTION_MOTTAI_NIGHT_LINK_PAGE_ID', 'experience-program': 'NOTION_EXPERIENCE_PROGRAM_LINK_PAGE_ID'}
 
 /**
  * @returns Notionのテーブルデータベースの各カラムに対応するプロパティ持つオブジェクト配列。
  */
-export const getNotionMottaiNightData = async () => {
+export const getNotionActivityData = async (activityName:string) => {
   try {
 
     const res = await NOTION.databases.query({
-      database_id: process.env.NOTION_MOTTAI_NIGHT_LINK_PAGE_ID as string,
+      database_id: process.env[envVariableNameObj[activityName as keyof object]] as string,
     })
 
     const notionRowArr = convertNotionResponse(res)
 
     // sv-SEロケールはYYYY-MM-DD形式の日付文字列を戻す。
     const today = new Date().toLocaleDateString('sv-SE')
-    const mottaiNightLinkArr: NewsSummary[] = []
+    const ActivityLinkArr: NewsSummary[] = []
 
     for(let notionRowObj of notionRowArr) {
       // データベース上でdate(開催日)が空欄の場合は表示しない。
@@ -36,10 +37,10 @@ export const getNotionMottaiNightData = async () => {
       }
 
       const notionImageKey = await extractImageKey(notionRowObj.thumbnail),
-        mottaiNightLink = notionRowObj.url.split('/').slice(-1)[0],
-        r2ImageUrl = await swapNotionImageForR2Image(notionRowObj.thumbnail, `mottai-night/${mottaiNightLink}/${notionImageKey}`)
+        ActivityLink = notionRowObj.url.split('/').slice(-1)[0],
+        r2ImageUrl = await swapNotionImageForR2Image(notionRowObj.thumbnail, `${activityName}/${ActivityLink}/${notionImageKey}`)
 
-      mottaiNightLinkArr.push({
+      ActivityLinkArr.push({
         title: notionRowObj.title,
         date: jaYYYYMMDD(notionRowObj.date),
         url: notionRowObj.url,
@@ -49,7 +50,7 @@ export const getNotionMottaiNightData = async () => {
     }
 
     // 開催日が近いものから表示する。
-    mottaiNightLinkArr.sort((a, b) => {
+    ActivityLinkArr.sort((a, b) => {
       if (a.date > b.date) {
         return 1
       } else {
@@ -57,7 +58,7 @@ export const getNotionMottaiNightData = async () => {
       }
     })
 
-    return mottaiNightLinkArr
+    return ActivityLinkArr
   } catch {
     return []
   }
