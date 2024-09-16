@@ -1,6 +1,6 @@
 // TODO: コメントを書く
 /**  */
-type MottaiNightLinkObj = {
+type activityLinkObj = {
   date: string;
   title: string;
   thumbnail: string;

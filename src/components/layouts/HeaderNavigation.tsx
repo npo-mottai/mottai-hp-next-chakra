@@ -279,6 +279,10 @@ const NAV_ITEMS: Array<NavItem> = [
         label: '罠オーナー制度',
         href: '/trap-owner',
       },
+      {
+        label: '体験事業',
+        href: '/experience-program',
+      },
     ],
   },
   {

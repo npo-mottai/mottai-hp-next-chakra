@@ -4,26 +4,24 @@ import ContentContainer from '../../components/ContentContainer'
 import MainVisual from '../../components/MainVisual'
 import TopicPath from '../../components/TopicPath'
 import ActivityList from '../../components/activity/ActivityList'
-import MottaiNight from '../../components/mottai-night-page/MottaiNight'
+import ExperienceProgram from '../../components/experience-program-page/ExperienceProgram'
 import SectionContainer from '../../components/top-page/SectionContainer'
 import { getNotionActivityData } from '../../utils/notion'
 
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-export default function MottaiNightPage({ mottaiNightLinkArr }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function ExperienceProgramPage({ experienceProgramLinkArr }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Box>
         <MainVisual title={'MOTTAI の活動'} />
         <ContentContainer>
           <TopicPath />
-          <SectionContainer id={'mottai-night'} title={'モッタイNight'}>
-            <MottaiNight />
+          <SectionContainer id={'experience-program'} title={'体験事業'}>
+            <ExperienceProgram />
           </SectionContainer>
           <SectionContainer id={'news'} title={'開催予定'}>
-            {/* メモ：children: ReactNode の値は Component のパラメータには含めず、
-            このようにタグ間に記述する */}
-            <ActivityList activityLinkArr={mottaiNightLinkArr} />
+            <ActivityList activityLinkArr={experienceProgramLinkArr} />
           </SectionContainer>
         </ContentContainer>
       </Box>
@@ -34,9 +32,9 @@ export default function MottaiNightPage({ mottaiNightLinkArr }: InferGetStaticPr
 // TODO: コメントを追加する
 /** */
 export const getStaticProps: GetStaticProps<{
-  mottaiNightLinkArr: activityLinkObj[]
+  experienceProgramLinkArr: activityLinkObj[]
 }> = (async () => {
-  let mottaiNightLinkArr = await getNotionActivityData('mottai-night' as string)
+  let experienceProgramLinkArr = await getNotionActivityData('experience-program' as string)
 
-  return { props: { mottaiNightLinkArr } }
+  return { props: { experienceProgramLinkArr } }
 })

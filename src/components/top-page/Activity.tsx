@@ -81,5 +81,6 @@ const activityItems: ActivityItem[] = [
     imageUrl: '/images/activity-3-other.webp',
     description:
       '上記プロジェクト以外にも、禅から学ぶ食体験、古民家改装、農業体験、漁業体験、DIYなど様々な体験を随時企画していきます。',
+    detailUrl: '/experience-program'
   },
 ]

@@ -71,6 +71,10 @@ const pathLabels = [
     label: '罠オーナー制度',
   },
   {
+    path: 'experience-program',
+    label: '体験事業',
+  },
+  {
     path: 'news',
     label: 'ニュース',
   },
