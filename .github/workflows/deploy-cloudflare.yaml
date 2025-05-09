@@ -9,7 +9,7 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     env:
       CLOUDFLARE_ACCESS_KEY_ID: ${{secrets.CLOUDFLARE_ACCESS_KEY_ID}}
       CLOUDFLARE_SECRET_ACCESS_KEY: ${{secrets.CLOUDFLARE_SECRET_ACCESS_KEY}}
